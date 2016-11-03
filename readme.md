@@ -8,3 +8,4 @@
 
 ---
 Site Link: [Project P4](http://p4.guddi.ca)
+P4 Planning Doc: [Planning Doc](https://docs.google.com/document/d/14-oLlboZjM5LSAK2hEGcNizxwNx4FQUbMHDSKFNDLBA/edit#heading=h.9jqtzjpjb2cj)
