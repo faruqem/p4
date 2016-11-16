@@ -24,6 +24,8 @@ class CreateReportsTable extends Migration
             $table->string('tess_report_id');
             $table->string('definition_file');
             $table->string('sql_proc');
+            $table->string('primary_tables');
+            $table->string('database')->default("impresario");
             $table->string('keywords')->nullable();
             $table->text('notes_general')->nullable();
             $table->text('notes_technical')->nullable();

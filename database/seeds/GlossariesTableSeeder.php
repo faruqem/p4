@@ -90,5 +90,15 @@ class GlossariesTableSeeder extends Seeder
             'created_by' => 1,
             'updated_by' => null
         ]);
+
+        DB::table('glossaries')->insert([
+            'term' => 'Net Price',
+            'definition' => 'Net price is total ticket price minus taxes (i.e. 13 percent HST which is previous 5 percent GST plus 8 percent PST in Ontario), CIF, CCF and handling fees.',
+            'active' => 1,
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null,
+            'created_by' => 1,
+            'updated_by' => null
+        ]);
     }
 }
