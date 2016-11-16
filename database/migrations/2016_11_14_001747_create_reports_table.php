@@ -30,9 +30,13 @@ class CreateReportsTable extends Migration
             $table->integer('category_id');
             $table->integer('framework_id');
             $table->integer('type_id');
-            $table->boolean('in-house')->default(1);
+            $table->boolean('schedulable');
+            $table->boolean('inhouse')->default(1);
             $table->boolean('verified')->default(0);
             $table->boolean('published')->default(1);
+            $table->date('first_implementation_dt'); //Report first create date
+            $table->date('last_update_dt'); //Report last update date
+            $table->boolean('discontinued')->default(0);
             $table->boolean('active')->default(1); //Whether this category is still in use or not
 
             # This generates two columns: `created_at` and `updated_at` to

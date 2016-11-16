@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
             'password' => 'faruqe',
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
         ]);
 
         DB::table('users')->insert([
@@ -26,7 +26,7 @@ class UsersTableSeeder extends Seeder
             'password' => 'helloworld',
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
         ]);
 
         DB::table('users')->insert([
@@ -35,7 +35,7 @@ class UsersTableSeeder extends Seeder
             'password' => 'helloworld',
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
         ]);
 
         DB::table('users')->insert([
@@ -44,7 +44,7 @@ class UsersTableSeeder extends Seeder
             'password' => 'rumana',
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
         ]);
 
         DB::table('users')->insert([
@@ -53,7 +53,7 @@ class UsersTableSeeder extends Seeder
             'password' => 'andrew',
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
         ]);
 
         DB::table('users')->insert([
@@ -62,7 +62,7 @@ class UsersTableSeeder extends Seeder
             'password' => 'chris',
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
         ]);
 
         DB::table('users')->insert([
@@ -71,7 +71,7 @@ class UsersTableSeeder extends Seeder
             'password' => 'bethany',
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
         ]);
 
         DB::table('users')->insert([
@@ -80,7 +80,7 @@ class UsersTableSeeder extends Seeder
             'password' => 'marielle',
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
         ]);
 
         DB::table('users')->insert([
@@ -89,7 +89,7 @@ class UsersTableSeeder extends Seeder
             'password' => 'deanna',
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
         ]);
 
         DB::table('users')->insert([
@@ -98,7 +98,7 @@ class UsersTableSeeder extends Seeder
             'password' => 'steve',
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
         ]);
 
         DB::table('users')->insert([
@@ -107,7 +107,7 @@ class UsersTableSeeder extends Seeder
             'password' => 'madeline',
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
         ]);
 
         DB::table('users')->insert([
@@ -116,7 +116,7 @@ class UsersTableSeeder extends Seeder
             'password' => 'veronica',
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
         ]);
 
         DB::table('users')->insert([
@@ -125,7 +125,7 @@ class UsersTableSeeder extends Seeder
             'password' => 'demitrios',
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
         ]);
 
         DB::table('users')->insert([
@@ -134,7 +134,7 @@ class UsersTableSeeder extends Seeder
             'password' => 'belinda',
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
         ]);
 
         DB::table('users')->insert([
@@ -143,7 +143,7 @@ class UsersTableSeeder extends Seeder
             'password' => 'amymac',
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
         ]);
     }
 }
