@@ -20,7 +20,7 @@ class CreateReportsTable extends Migration
 
             # The main fact/data fields.
             $table->string('name');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('tess_report_id');
             $table->string('definition_file');
             $table->string('sql_proc');
