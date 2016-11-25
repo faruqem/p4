@@ -21,14 +21,14 @@ class CreateReportsTable extends Migration
             # The main fact/data fields.
             $table->string('name');
             $table->text('description')->nullable();
-            $table->string('tess_report_id');
+            $table->string('tess_report_id')->nullable();
             $table->string('definition_file');
             $table->string('sql_proc');
-            $table->string('primary_tables');
+            //$table->string('primary_tables');
             $table->string('database')->default("impresario");
             $table->string('keywords')->nullable();
-            $table->text('notes_general')->nullable();
-            $table->text('notes_technical')->nullable();
+            $table->text('note_general')->nullable();
+            $table->text('note_technical')->nullable();
             $table->integer('category_id');
             $table->integer('framework_id');
             $table->integer('type_id');

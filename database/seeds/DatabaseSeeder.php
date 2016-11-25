@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FrameworksTableSeeder::class);
         $this->call(TypesTableSeeder::class);
         $this->call(GlossariesTableSeeder::class);
+        $this->call(TessareasTableSeeder::class);
         $this->call(ReportsTableSeeder::class);
     }
 }

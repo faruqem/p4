@@ -20,6 +20,7 @@ class CreateRevisionsTable extends Migration
 
             # The main fact/data fields.
             $table->integer('report_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->dateTime('rev_date');
             $table->string('reason');
             $table->boolean('active')->default(1); //Whether this category is still in use or not
@@ -27,9 +28,6 @@ class CreateRevisionsTable extends Migration
             # This generates two columns: `created_at` and `updated_at` to
             # keep track of changes to a row
             $table->timestamps();
-
-            $table->integer('created_by')->unsigned(); //Refers to users.user_id
-            $table->integer('updated_by')->unsigned()->nullable(); //Refers to users.user_id
         });
     }
 

@@ -17,9 +17,7 @@ class TypesTableSeeder extends Seeder
             'default' => 1,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null,
-            'created_by' => 1,
-            'updated_by' => null
+            'updated_at' => null
         ]);
 
         DB::table('types')->insert([
@@ -28,9 +26,7 @@ class TypesTableSeeder extends Seeder
             'default' => 0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null,
-            'created_by' => 1,
-            'updated_by' => null
+            'updated_at' => null
         ]);
 
         DB::table('types')->insert([
@@ -39,9 +35,7 @@ class TypesTableSeeder extends Seeder
             'default' => 0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null,
-            'created_by' => 1,
-            'updated_by' => null
+            'updated_at' => null
         ]);
 
         DB::table('types')->insert([
@@ -50,9 +44,16 @@ class TypesTableSeeder extends Seeder
             'default' => 0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null,
-            'created_by' => 1,
-            'updated_by' => null
+            'updated_at' => null
+        ]);
+
+        DB::table('types')->insert([
+            'name' => 'Dashboard Widget',
+            'description' => 'Tessitura custom screens.',
+            'default' => 0,
+            'active' => 1,
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
         ]);
     }
 }

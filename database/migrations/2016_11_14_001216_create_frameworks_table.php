@@ -27,9 +27,6 @@ class CreateFrameworksTable extends Migration
             # This generates two columns: `created_at` and `updated_at` to
             # keep track of changes to a row
             $table->timestamps();
-
-            $table->integer('created_by')->unsigned(); //Refers to users.user_id
-            $table->integer('updated_by')->unsigned()->nullable(); //Refers to users.user_id
         });
     }
 
