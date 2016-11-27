@@ -19,7 +19,7 @@ class CreateScreenshotsTable extends Migration
             $table->increments('id');
 
             # The main fact/data fields.
-            $table->integer('report_id');
+            //$table->integer('report_id');
             $table->string('file_name');
             $table->string('file_Type');
             $table->string('caption');
