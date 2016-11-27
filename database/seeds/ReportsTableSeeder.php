@@ -11,6 +11,7 @@ class ReportsTableSeeder extends Seeder
      */
     public function run()
     {
+        $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'NBC Daily Sales Report New',
             'description' => 'Modified version of NBC Daily Sales Report that shows the result set in a browser based SSRS window It keeps the other features as they are such as it excludes the conversion column, includes only ticket price, and shows production name in subtotal row.',
@@ -24,7 +25,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'Primary sales data comes from t_order, t_sub_lineitem, t_sli_detail, tr_price_category, tr_mos, and t_order_seat_hist. Same SP is also used for executive dashboard auto update sales report in which case current fiscal year is automatically determined.',
             //'category_id' => 2,
             //'framework_id' => 2,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>1,
             'inhouse' => 1,
             'verified' => 1,
@@ -39,6 +40,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'NBC Performance Attendance Detail Report',
             'description' => 'It gives the detail break up of ticket scanning - by scanner and by different time slots before and immediately after the show starts.',
@@ -52,7 +54,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'It mainly pulls data from t_nscan_event_control table.',
             //'category_id' => 2,
             //'framework_id' => 3,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>1,
             'inhouse' => 1,
             'verified' => 1,
@@ -67,6 +69,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'Customer Service Issue Tracking',
             'description' => 'Customer Service issue listing with options for selecting by Category, Type, Rep, Open Issues Only, etc.',
@@ -80,7 +83,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'Data comes from t_cust_activity, t_issue_action, tr_action,tr_cust_activity_type, tr_cust_activity_category, tr_contact_type and tr_origin tables.',
             //'category_id' => 4,
             //'framework_id' => 3,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>1,
             'inhouse' => 0,
             'verified' => 1,
@@ -95,6 +98,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'Income by Payment Method',
             'description' => 'Major Financial report listing all income for a range of dates.  Includes an option to limit income to what has been posted or to certain locations.',
@@ -108,7 +112,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'Data comes from t_payment, tr_payment_method, t_transaction, t_fund, tr_payment_method, tr_bu, tr_desig_code, tr_account_type, t_batch, tr_batch_type, tr_batch_type_group, tx_machine_location_hist, tr_location and t_fee tables.',
             //'category_id' => 9,
             //'framework_id' => 3,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>1,
             'inhouse' => 0,
             'verified' => 1,
@@ -123,6 +127,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'New Contributions Report',
             'description' => 'Listing of all contributions to selected funds within a date range.  Primary Development Dept notification of daily activity.',
@@ -136,7 +141,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'Data comes from t_contribution, t_transaction, t_customer, tr_cont_designation, tx_cust_membership, tx_cont_memb, tr_memb_trend, tx_cust_plan, t_ack_ext and t_format_info tables.',
             //'category_id' => 7,
             //'framework_id' => 3,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>1,
             'inhouse' => 0,
             'verified' => 1,
@@ -151,6 +156,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'Ticketing Fee Revenue',
             'description' => 'Transaction based report showing total fee revenue for a given period.',
@@ -164,7 +170,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'Data comes from t_fee, t_order, tr_fee_category, tr_mos, tr_sales_channel, t_transaction, t_batch, tr_batch_type, t_campaign tables.',
             //'category_id' => 9,
             //'framework_id' => 3,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>1,
             'inhouse' => 0,
             'verified' => 1,
@@ -179,6 +185,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'Ticket Sales by Period',
             'description' => 'Summary of ticket sales activity for a given period of time, categorized by MOS category or sales channel and sub-totaled by season, production, or week.',
@@ -192,7 +199,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'Data comes from t_order, t_sub_lineitem, t_transaction, t_perf_price_type, t_perf_price_layer, tr_price_layer_type,  tr_price_type and tr_price_type_category',
             //'category_id' => 2,
             //'framework_id' => 3,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>1,
             'inhouse' => 0,
             'verified' => 1,
@@ -207,6 +214,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'Fund Activity Report',
             'description' => 'Fundraising report showing activity by Fund over a selected contribution or transaction date range.  Parameters for filtering include designation, appeal, campaign, list, and sales channel.  Output can be grouped by Fund, Payment, Campaign or Designation, optionally showing constituent detail.',
@@ -220,7 +228,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'Data comes from t_fund, t_appeal, tr_cont_designation, t_contribution, t_transaction, t_campaign, t_batch, t_payment, tr_payment_method, t_creditee, tr_creditee and tr_sales_channel tables.',
             //'category_id' => 9,
             //'framework_id' => 3,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>1,
             'inhouse' => 0,
             'verified' => 1,
@@ -235,6 +243,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'Event Listing',
             'description' => 'Produces a list of constituents (and guests) who are associated with a given event (campaign), event status, table number, event level(s) and list.',
@@ -248,7 +257,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'Data comes from tx_event_extract, tx_event_guest, tr_event_level, t_campaign and t_customer tables.',
             //'category_id' => 7,
             //'framework_id' => 3,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>1,
             'inhouse' => 0,
             'verified' => 1,
@@ -263,6 +272,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'Transactions by Posting',
             'description' => 'For a posting number or a range of posting dates, this report details the transactions that affect each GL number.',
@@ -276,7 +286,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'Additional data comes from t_transaction, t_contribution, t_order, t_payment, t_perf_price_type, t_perf_price_layer, t_fee, t_fund, tr_payment_method, t_campaign, tr_transaction_type, vs_gl_ccount, t_batch, tr_batch_type, tr_batch_type_group and t_gl_account_hist tables.',
             //'category_id' => 9,
             //'framework_id' => 3,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>1,
             'inhouse' => 0,
             'verified' => 1,
@@ -291,6 +301,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'Campaign Fund Summary',
             'description' => 'It gives contribution gift and pledge - due and received amount for a paricular campaign year, campaign(s), fund(s), list and transaction date range by campaign and fund (grouping) with campaign group total and grand total.',
@@ -304,7 +315,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'This report brings all records from t_transaction, where the trn_dt is in the given date range and the funds associated are those specified in the input argument. Though the report stored procedure has the prefix LRP and original report description says created for NBC, apparently it is a canned report.  There is no mention of NBoC developer in the stored procedure comments.',
             //'category_id' => 9,
             //'framework_id' => 3,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>1,
             'inhouse' => 0,
             'verified' => 1,
@@ -319,6 +330,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'Campaign Fund Detail Report',
             'description' => 'It gives contribution gift and pledge - due and received amount for a paricular campaign year, campaign(s), fund(s), list and transaction date range by campaign and fund (grouping) with campaign group total and grand total.',
@@ -332,7 +344,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'Created based on ap_fund_activity_report SP. Tables it pulls data from: t_transaction, t_fund, t_contribution and t_campaign. Though the report stored procedure has the prefix LRP and original report description says created for NBC, apparently it is a canned report. There is no mention of NBoC developer in the stored procedure comments.',
             //'category_id' => 9,
             //'framework_id' => 3,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>1,
             'inhouse' => 0,
             'verified' => 1,
@@ -347,6 +359,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'NBC Performance List by Season',
             'description' => 'To print the list of all Performances in a season to get the Perf No for setting up scanners.',
@@ -360,7 +373,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'Tables it pulls data from: t_perf, tr_season, t_inventory and t_prod_season.',
             //'category_id' => 2,
             //'framework_id' => 2,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>1,
             'inhouse' => 1,
             'verified' => 1,
@@ -375,6 +388,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'NBC Activity Attendance Status Report',
             'description' => 'Gives activity attendance status details.',
@@ -388,7 +402,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'Additional tables and views it pulls data from: t_special_activity, t_customer, tr_special_activity_status, vrs_special_activity and vs_special_activity.',
             //'category_id' => 7,
             //'framework_id' => 2,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>1,
             'inhouse' => 1,
             'verified' => 1,
@@ -403,6 +417,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'NBC Section and Zone Selection by Price Type',
             'description' => 'Lists the zone selected by patrons for particular price type.',
@@ -416,7 +431,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'Tables and views it pulls data from: t_zone, tr_section, t_sub_lineitem, t_order, t_perf, tr_price_type, t_prod_season, t_inventory, tr_season and t_seat.',
             //'category_id' => 2,
             //'framework_id' => 2,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>1,
             'inhouse' => 1,
             'verified' => 1,
@@ -431,6 +446,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Custom Screen')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'Corporate Offers',
             'description' => 'This is a constituent custom screen related to corporate offers.',
@@ -444,7 +460,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'Look into tr_custom_tab table for id 6 and radito button 3. Data is saved into local table ltr_custom_devo_offers.',
             //'category_id' => 2,
             //'framework_id' => 2,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>0,
             'inhouse' => 1,
             'verified' => 1,
@@ -459,6 +475,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Custom Screen')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'Tax Receipt',
             'description' => 'This is a constituent custom screen to view and print tax receipt for a customer.',
@@ -472,7 +489,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'Look into tr_custom_tab table for id 9 and radito button 6. This screen does not update any data.',
             //'category_id' => 2,
             //'framework_id' => 2,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>0,
             'inhouse' => 1,
             'verified' => 1,
@@ -487,6 +504,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Dashboard Widget')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'Interactive Seatmap',
             'description' => 'This is a report widget which gives graphical views of the house and seating arrangement.',
@@ -500,7 +518,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'Look into tr_dash_widget_parm_value system table for id 603 for details.',
             //'category_id' => 2,
             //'framework_id' => 2,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>0,
             'inhouse' => 1,
             'verified' => 1,
@@ -515,6 +533,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Dashboard Widget')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'NBC Daily Sales',
             'description' => 'This is a report widget to give daily sales information.',
@@ -528,7 +547,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'Look into tr_dash_widget_parm_value system table for id 600 for details. It uses the same SP as the NBC Daily Sales Report New.',
             //'category_id' => 2,
             //'framework_id' => 2,
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>0,
             'inhouse' => 1,
             'verified' => 1,
@@ -543,6 +562,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Utility')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'NBC Mass Update CSI Utility',
             'description' => 'This is a report utility to mass update CSI (Customer Service Issue).',
@@ -556,7 +576,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'Primarily updates the t_cust_activity standard table to insert CSIs.',
             //'category_id' => 2, //Customer Service
             //'framework_id' => 2, //InfoMaker
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>0,
             'inhouse' => 1,
             'verified' => 1,
@@ -571,6 +591,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Utility')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'NBC Void eTaxReceipt Utility - Gift',
             'description' => 'This utility will allow you to view and void any electronic tax receipt for a gift amount. Use caution while running this utility in update mode.',
@@ -584,7 +605,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'It updates the lt_nbc_tax_recpt_summary local table to mark a tax receipt row as voided. Then uses the ap_send_smtp_mail canned SP to send email through the STAMPS2 mail server. While setting up the Database Mail for this, use IP address instead of the mail server name.',
             //'category_id' => 2, //Miscellaneous
             //'framework_id' => 2, //SSRS
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>0,
             'inhouse' => 1,
             'verified' => 1,
@@ -599,6 +620,7 @@ class ReportsTableSeeder extends Seeder
             //'updated_by' => null
         ]);
 
+        $type_id = DB::table('types')->where('name', 'Custom Screen')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'Telesales Custom App - Telesales Leads Pooling Screen',
             'description' => 'This is part of Telesales custom application to pool and distribite leads for the Telesales department .',
@@ -612,7 +634,7 @@ class ReportsTableSeeder extends Seeder
             'note_technical' => 'This is a ASP.NET Web Form based page for Telesales custom application. Data are pulled using SOAP API local procedures. Ids 1502 to 1520 have been registered in the tr_local_procedure standard table to be called by the SOAP API ExecuteLocalProcedure method.',
             //'category_id' => 2, //Miscellaneous
             //'framework_id' => 2, //SSRS
-            //'type_id' => 2,
+            'type_id' => $type_id,
             'schedulable'=>0,
             'inhouse' => 1,
             'verified' => 1,
