@@ -46,5 +46,14 @@ class FrameworksTableSeeder extends Seeder
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
         ]);
+
+        DB::table('frameworks')->insert([
+            'name' => 'Other',
+            'description' => 'Anything other than MS .NET, InfoMaker or SSRS.',
+            'default' => 0,
+            'active' => 1,
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
+        ]);
     }
 }

@@ -21,6 +21,7 @@ class CreateAppobjectsTable extends Migration
             # The main fact/data fields.
             $table->string('name');
             $table->string('description');
+            $table->boolean('default')->default(0);
             $table->boolean('active')->default(1); //Whether this category is still in use or not
 
             # This generates two columns: `created_at` and `updated_at` to

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class TessareasTableSeeder extends Seeder
+class AppobjectsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,135 +11,135 @@ class TessareasTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tessareas')->insert([
+        DB::table('appobjects')->insert([
             'name' => '(None)',
-            'description' => 'Not related to any application area.',
+            'description' => 'Dummy entry - just to be added as a default value when app object is yet unknown.',
             'default' => 1,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
         ]);
 
-        DB::table('tessareas')->insert([
-            'name' => 'Order',
-            'description' => 'Single ticket and subscription orders.',
+        DB::table('appobjects')->insert([
+            'name' => 'Report',
+            'description' => 'Main aplication object i.e. a report, custom screen, utility or widget.',
             'default' => 0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
         ]);
 
-        DB::table('tessareas')->insert([
-            'name' => 'Contribution',
-            'description' => 'Gift and pledges.',
+        DB::table('appobjects')->insert([
+            'name' => 'Revision',
+            'description' => 'Revision history of a report, custom screen, utility or widget.',
             'default' => 0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
         ]);
 
-        DB::table('tessareas')->insert([
-            'name' => 'Payment and Transaction',
-            'description' => 'Payment and transaction details.',
+        DB::table('appobjects')->insert([
+            'name' => 'Comment',
+            'description' => 'User comment of a report, custom screen, utility or widget.',
             'default' => 0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
         ]);
 
-        DB::table('tessareas')->insert([
-            'name' => 'Constituents',
-            'description' => 'Customer related data.',
+        DB::table('appobjects')->insert([
+            'name' => 'Rating',
+            'description' => 'User rating of a report, custom screen, utility or widget.',
             'default' => 0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
         ]);
 
-        DB::table('tessareas')->insert([
-            'name' => 'Package',
-            'description' => 'Subscription details.',
+        DB::table('appobjects')->insert([
+            'name' => 'Glossary',
+            'description' => 'A glossary item.',
             'default' => 0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
         ]);
 
-        DB::table('tessareas')->insert([
-            'name' => 'Production',
-            'description' => 'Inventory and production details',
+        DB::table('appobjects')->insert([
+            'name' => 'User',
+            'description' => 'User of the application.',
             'default' => 0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
         ]);
 
-        DB::table('tessareas')->insert([
-            'name' => 'Facility',
-            'description' => 'Venue related.',
+        DB::table('appobjects')->insert([
+            'name' => 'Password',
+            'description' => 'A user password.',
             'default' => 0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
         ]);
 
-        DB::table('tessareas')->insert([
-            'name' => 'Access Control',
-            'description' => 'Ticket scanning and show attendance.',
+        DB::table('appobjects')->insert([
+            'name' => 'Role',
+            'description' => 'A user security role.',
             'default' => 0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
         ]);
 
-        DB::table('tessareas')->insert([
-            'name' => 'Communication Management',
-            'description' => 'Contact point, purpose and other details.',
+        DB::table('appobjects')->insert([
+            'name' => 'Category',
+            'description' => 'Report category reference object.',
             'default' => 0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
         ]);
 
-        DB::table('tessareas')->insert([
-            'name' => 'Event Management',
-            'description' => 'Special events, gala and, other customer relationship and fund raising events.',
+        DB::table('appobjects')->insert([
+            'name' => 'Type',
+            'description' => 'Report type reference object.',
             'default' => 0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
         ]);
 
-        DB::table('tessareas')->insert([
-            'name' => 'Plan',
-            'description' => 'Development plan related.',
+        DB::table('appobjects')->insert([
+            'name' => 'Framework',
+            'description' => 'Report framework reference object.',
             'default' => 0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
         ]);
 
-        DB::table('tessareas')->insert([
-            'name' => 'Telesales',
-            'description' => 'Telesales area.',
+        DB::table('appobjects')->insert([
+            'name' => 'Tessarea',
+            'description' => 'Tessitura application area.',
             'default' => 0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
         ]);
 
-        DB::table('tessareas')->insert([
-            'name' => 'Artistic',
-            'description' => 'Artistic and other related areas.',
+        DB::table('appobjects')->insert([
+            'name' => 'Screenshot',
+            'description' => 'Report screenshot reference object.',
             'default' => 0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
         ]);
 
-        DB::table('tessareas')->insert([
-            'name' => 'Other',
-            'description' => 'Any other area of the application.',
+        DB::table('appobjects')->insert([
+            'name' => 'Appobject',
+            'description' => 'Any application object.',
             'default' => 0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),

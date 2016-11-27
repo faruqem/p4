@@ -49,7 +49,7 @@ class TypesTableSeeder extends Seeder
 
         DB::table('types')->insert([
             'name' => 'Dashboard Widget',
-            'description' => 'Tessitura custom screens.',
+            'description' => 'Executive widgets.',
             'default' => 0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
