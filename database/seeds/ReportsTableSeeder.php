@@ -11,6 +11,9 @@ class ReportsTableSeeder extends Seeder
      */
     public function run()
     {
+        $created_by = DB::table('users')->where('email', 'faruqem@yahoo.com')->pluck('id')->first();
+        $updated_by = DB::table('users')->where('email', 'faruqem@yahoo.com')->pluck('id')->first();
+
         $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
         DB::table('reports')->insert([
             'name' => 'NBC Daily Sales Report New',
@@ -35,9 +38,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'created_by' => $created_by,
+            'updated_by' => $updated_by
         ]);
 
         $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
@@ -64,9 +67,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
@@ -93,9 +96,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
@@ -122,9 +125,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
@@ -151,9 +154,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
@@ -180,9 +183,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
@@ -209,9 +212,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
@@ -238,9 +241,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
@@ -267,9 +270,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
@@ -296,9 +299,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
@@ -325,9 +328,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
@@ -354,9 +357,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
@@ -383,9 +386,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
@@ -412,9 +415,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Report')->pluck('id')->first();
@@ -441,9 +444,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Custom Screen')->pluck('id')->first();
@@ -470,9 +473,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Custom Screen')->pluck('id')->first();
@@ -499,9 +502,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Dashboard Widget')->pluck('id')->first();
@@ -528,9 +531,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Dashboard Widget')->pluck('id')->first();
@@ -557,9 +560,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Utility')->pluck('id')->first();
@@ -586,9 +589,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Utility')->pluck('id')->first();
@@ -615,9 +618,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
 
         $type_id = DB::table('types')->where('name', 'Custom Screen')->pluck('id')->first();
@@ -644,9 +647,9 @@ class ReportsTableSeeder extends Seeder
             'discontinued'=>0,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => null
-            //'created_by' => 1,
-            //'updated_by' => null
+            'updated_at' => null,
+            'created_by' => $created_by,
+            'updated_by' => null
         ]);
     }
 }
