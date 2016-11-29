@@ -19,12 +19,12 @@ class CreateAppobjectRoleTable extends Migration
             $table->increments('id');
 
             # The main fact/data fields.
-            $table->integer('object_id')->unsigned();
+            $table->integer('appobject_id')->unsigned();
             $table->integer('role_id')->unsigned();
 
             #Object permission for the role
-            $table->boolean('create')->default(1);
-            $table->boolean('read')->default(1);
+            $table->boolean('create')->default(0);
+            $table->boolean('read')->default(0);
             $table->boolean('update')->default(0);
             $table->boolean('delete')->default(0);
 
