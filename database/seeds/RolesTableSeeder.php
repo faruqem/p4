@@ -21,7 +21,7 @@ class RolesTableSeeder extends Seeder
         ]);
 
         DB::table('roles')->insert([
-            'name' => 'Administrators',
+            'name' => 'Administrator',
             'description' => 'Administrator with full access to do any kind of CRUD operations on any application object.',
             'default' => 0,
             'active' => 1,
@@ -30,7 +30,16 @@ class RolesTableSeeder extends Seeder
         ]);
 
         DB::table('roles')->insert([
-            'name' => 'Power Users',
+            'name' => 'Developer',
+            'description' => 'Developers with full access to do any kind of CRUD operations on any application object.',
+            'default' => 0,
+            'active' => 1,
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
+        ]);
+
+        DB::table('roles')->insert([
+            'name' => 'Power User',
             'description' => 'Power users group generally to do CRUD operations on comments, ratings, glossaries etc.',
             'default' => 0,
             'active' => 1,
@@ -39,7 +48,7 @@ class RolesTableSeeder extends Seeder
         ]);
 
         DB::table('roles')->insert([
-            'name' => 'Users',
+            'name' => 'User',
             'description' => 'General users group who can olny view any report details.',
             'default' => 0,
             'active' => 1,

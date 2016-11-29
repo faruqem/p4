@@ -22,6 +22,8 @@ class CreateReportTessareaTable extends Migration
             $table->integer('report_id')->unsigned();
             $table->integer('tessarea_id')->unsigned();
 
+            $table->boolean('active')->default(1); //Whether this row is still in use or not
+
             # This generates two columns: `created_at` and `updated_at` to
             # keep track of changes to a row
             $table->timestamps();
