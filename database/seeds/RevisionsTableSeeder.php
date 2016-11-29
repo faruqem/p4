@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class CommentsTableSeeder extends Seeder
+class RevisionsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,11 +13,11 @@ class CommentsTableSeeder extends Seeder
     {
         $report_id = DB::table('reports')->where('name', 'NBC Daily Sales Report New')->pluck('id')->first();
         $user_id = DB::table('users')->where('email', 'faruqem@yahoo.com')->pluck('id')->first();
-        DB::table('comments')->insert([
+        DB::table('revisions')->insert([
             'report_id' => $report_id,
             'user_id' => $user_id,
-            'description' => 'I always rely on this report for net ticket sales.',
-            'comment_dt' => Carbon\Carbon::now()->toDateTimeString(),
+            'description' => 'Added a section on top of the SP to automatically detect the current fiscal year for widget.',
+            'revision_dt' => Carbon\Carbon::now()->toDateTimeString(),
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null,
@@ -25,12 +25,12 @@ class CommentsTableSeeder extends Seeder
         ]);
 
         $report_id = DB::table('reports')->where('name', 'NBC Daily Sales Report New')->pluck('id')->first();
-        $user_id = DB::table('users')->where('email', 'scunningham@national.ballet.ca')->pluck('id')->first();
-        DB::table('comments')->insert([
+        $user_id = DB::table('users')->where('email', 'kshah@national.ballet.ca')->pluck('id')->first();
+        DB::table('revisions')->insert([
             'report_id' => $report_id,
             'user_id' => $user_id,
-            'description' => 'I scheduled it to run daily.',
-            'comment_dt' => Carbon\Carbon::now()->toDateTimeString(),
+            'description' => 'Updated the SP to add a new Mode of Sale (MOS).',
+            'revision_dt' => Carbon\Carbon::now()->toDateTimeString(),
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null,
@@ -39,11 +39,11 @@ class CommentsTableSeeder extends Seeder
 
         $report_id = DB::table('reports')->where('name', 'NBC Performance Attendance Detail Report')->pluck('id')->first();
         $user_id = DB::table('users')->where('email', 'faruqem@yahoo.com')->pluck('id')->first();
-        DB::table('comments')->insert([
+        DB::table('revisions')->insert([
             'report_id' => $report_id,
             'user_id' => $user_id,
-            'description' => 'This post show report is used by both COC and NBoC.',
-            'comment_dt' => Carbon\Carbon::now()->toDateTimeString(),
+            'description' => 'Added a new criteria in the parameter list in the report setup.',
+            'revision_dt' => Carbon\Carbon::now()->toDateTimeString(),
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null,

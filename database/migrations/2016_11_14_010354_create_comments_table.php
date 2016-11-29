@@ -21,8 +21,8 @@ class CreateCommentsTable extends Migration
             # The main fact/data fields.
             //$table->integer('report_id')->unsigned();
             //$table->integer('user_id')->unsigned();
-            $table->string('comment');
-            $table->dateTime('comment_date');
+            $table->string('description');
+            $table->dateTime('comment_dt');
             $table->boolean('active')->default(1); //Whether this category is still in use or not
 
             # This generates two columns: `created_at` and `updated_at` to

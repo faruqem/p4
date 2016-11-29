@@ -39,6 +39,15 @@ class UsersTableSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
+            'name' => 'Kruti Shah',
+            'email' => 'kshah@national.ballet.ca',
+            'password' => 'kruti',
+            'remember_token' => null,
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
+        ]);
+
+        DB::table('users')->insert([
             'name' => 'Ru Haque',
             'email' => 'rhaque@yahoo.com',
             'password' => 'rumana',
@@ -141,6 +150,24 @@ class UsersTableSeeder extends Seeder
             'name' => 'Amy McMullen',
             'email' => 'amcmullen@national.ballet.ca',
             'password' => 'amymac',
+            'remember_token' => null,
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Keerthi Rajan',
+            'email' => 'krajan@national.ballet.ca',
+            'password' => 'keerthi',
+            'remember_token' => null,
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Fernando Margueirat',
+            'email' => 'fmargueirat@national.ballet.ca',
+            'password' => 'fernando',
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
