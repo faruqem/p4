@@ -20,7 +20,7 @@
             "database"
         ],
         "psr-4": {
-            "P4\\": "app/"
+            "App\\": "app/"
         }
     },
     "autoload-dev": {

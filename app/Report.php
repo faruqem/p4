@@ -1,6 +1,6 @@
 <?php
 
-namespace P4;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
