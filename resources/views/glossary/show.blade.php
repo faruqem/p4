@@ -21,11 +21,11 @@ such as a page specific stylesheets.
         </div>
         <p>{{ $glossary->definition }}</p><br>
 
-    <a class='button' href='/glossaries/{{ $glossary->id }}/edit'><i class='fa fa-pencil'></i> Edit</a>
-    <a class='button' href='/glossaries/{{ $glossary->id }}/delete'><i class='fa fa-trash'></i> Delete</a>
+        <a class='button' href='/glossaries/{{ $glossary->id }}/edit'><i class='fa fa-pencil'></i> Edit</a>
+        <a class='button' href='/glossaries/{{ $glossary->id }}/delete'><i class='fa fa-trash'></i> Delete</a>
 
-    <br><br>
-    <a class='text-success' href='/glossaries'>&larr; Return to Glossaries page</a>
+        <br><br>
+        <a class='text-success' href='/glossaries'>&larr; Return to Glossaries page</a>
     </div>
 @endsection
 

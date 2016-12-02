@@ -27,7 +27,7 @@ such as a page specific stylesheets.
                 <a class='button' href='/glossaries/{{ $glossary->id }}/edit'><i class='fa fa-pencil'></i> Edit</a>
                 <!--<a class='button' href='/glossaries/{{ $glossary->id }}'><i class='fa fa-eye'></i> View</a>-->
                 <a class='button' href='/glossaries/{{ $glossary->id }}/delete'><i class='fa fa-trash'></i> Delete</a>
-            <div><br>
+            </div><br>
         @endforeach
     </div>
 @endsection
