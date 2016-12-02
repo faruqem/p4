@@ -10,9 +10,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Fonts -->
         <link href="css/app.css" rel="stylesheet">
+        <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/journal/bootstrap.min.css" rel="stylesheet">
-        <link href="css/p3.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
         {{-- Yield any page specific CSS files or anything else you might want in the <head> --}}
         @yield('head')
     </head>
@@ -52,9 +53,16 @@
                         <li role="separator" class="divider"></li>
                         <li class="dropdown-header"></li>
                         <li><a href="#">Revisions</a></li>
+                        <li><a href="/glossaries/create">Create New</a></li>
                       </ul>
                     </li>
-                    <li><a href="#">Glossary</a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Glossaries<span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="/glossaries">View All</a></li>
+                        <li><a href="/glossaries/create">Create New</a></li>
+                       </ul>
+                    </li>
                     <li><a href="/contact">Contact</a></li>
                   </ul>
                 </div><!--/.nav-collapse -->
