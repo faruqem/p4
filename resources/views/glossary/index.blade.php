@@ -21,7 +21,7 @@ such as a page specific stylesheets.
         </div>
         @foreach($glossaries as $glossary)
             <div>
-                <a href='/glossaries/{{ $glossary->id }}'><h4 class="text-success">{{ $glossary->term }}</h4></a>
+                <a href='/glossaries/{{ $glossary->id }}'><h4 class="text-info">{{ $glossary->term }}</h4></a>
                 <p>{{ $glossary->definition }}</p>
 
                 <a class='button' href='/glossaries/{{ $glossary->id }}/edit'><i class='fa fa-pencil'></i> Edit</a>

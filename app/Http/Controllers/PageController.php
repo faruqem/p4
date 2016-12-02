@@ -27,6 +27,7 @@ class PageController extends Controller
     public function contact()
     {
         return view('page.contact');
+        //return view('glossary.create');
     }
 
     #Post the page

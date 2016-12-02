@@ -36,7 +36,7 @@ such as a page specific stylesheets.
 
             <div class='form-group'>
                 <label for="definition">Definition</label>
-                <textarea id='definition' class="form-control" name='definition' rows="4" value='{{ old('definition', $glossary->definition) }}'>{{$glossary->definition}}</textarea>
+                <textarea id='definition' class="form-control" name='definition' rows="4">{{$glossary->definition}}</textarea>
                 <div class='error'>{{ $errors->first('definition') }}</div>
             </div>
 
@@ -45,6 +45,7 @@ such as a page specific stylesheets.
             </div>
 
             <button type="submit" class="btn btn-primary">Save changes</button>
+            <a href='/glossaries' class="btn btn-primary">Cancel</a>
 
             <div class='error'>
                 @if(count($errors) > 0)

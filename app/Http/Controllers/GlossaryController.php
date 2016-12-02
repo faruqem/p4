@@ -27,6 +27,7 @@ class GlossaryController extends Controller
     public function create()
     {
         return view('glossary.create');
+        //return view('page.contact');
     }
 
     /**
@@ -150,6 +151,4 @@ class GlossaryController extends Controller
         Session::flash('flash_message', $glossary->term.' was deleted.');
         return redirect('/glossaries');
     }
-
-
 }

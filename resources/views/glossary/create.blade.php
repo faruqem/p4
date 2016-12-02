@@ -31,7 +31,7 @@ such as a page specific stylesheets.
 
             <div class='form-group'>
                 <label for="definition">Definition</label>
-                <textarea id='definition' class="form-control" name='definition' value='{{ old('definition') }}'  rows="4"></textarea>
+                <textarea id='definition' class="form-control" name='definition' rows="4"></textarea>
                 <div class='error'>{{ $errors->first('definition') }}</div>
             </div>
             <div class='form-instructions'>
@@ -39,6 +39,7 @@ such as a page specific stylesheets.
             </div>
 
             <button type="submit" class="btn btn-primary">Save Term</button>
+            <a href='/glossaries' class="btn btn-primary">Cancel</a>
 
             {{--
                 <ul class=''>

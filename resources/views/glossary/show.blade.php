@@ -25,7 +25,7 @@ such as a page specific stylesheets.
         <a class='button' href='/glossaries/{{ $glossary->id }}/delete'><i class='fa fa-trash'></i> Delete</a>
 
         <br><br>
-        <a class='text-success' href='/glossaries'>&larr; Return to Glossaries page</a>
+        <a class='text-info' href='/glossaries'>Return to Glossaries page</a>
     </div>
 @endsection
 

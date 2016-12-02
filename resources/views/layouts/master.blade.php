@@ -18,6 +18,9 @@
         @yield('head')
     </head>
     <body>
+        @if(Session::get('flash_message') != null)
+            <div class='flash_message'>{{ Session::get('flash_message') }}</div>
+        @endif
         <!-- Fixed navbar -->
         <header>
             <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
