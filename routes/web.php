@@ -52,3 +52,7 @@ Route::delete('/glossaries/{id}', 'GlossaryController@destroy')->name('glossarie
 
 # The above Glossary routes *could* all be replaced with this one line:
 # Route::resource('glossaries', 'GlossaryController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

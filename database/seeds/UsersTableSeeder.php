@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Mo Faruqe',
             'email' => 'faruqem@yahoo.com',
-            'password' => 'faruqe',
+            'password' => Hash::make('faruqe'),
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Jill',
             'email' => 'jill@harvard.edu',
-            'password' => 'helloworld',
+            'password' => Hash::make('helloworld'),
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
@@ -32,7 +32,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Jamal',
             'email' => 'jamal@harvard.edu',
-            'password' => 'helloworld',
+            'password' => Hash::make('helloworld'),
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
@@ -41,7 +41,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Kruti Shah',
             'email' => 'kshah@national.ballet.ca',
-            'password' => 'kruti',
+            'password' => Hash::make('kruti'),
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
@@ -50,7 +50,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Ru Haque',
             'email' => 'rhaque@yahoo.com',
-            'password' => 'rumana',
+            'password' => Hash::make('rumana'),
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
@@ -59,7 +59,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Andrew Anderson',
             'email' => 'aanderson@national.ballet.ca',
-            'password' => 'andrew',
+            'password' => Hash::make('andrew'),
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
@@ -68,7 +68,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Chris Sonneman',
             'email' => 'csonneman@national.ballet.ca',
-            'password' => 'chris',
+            'password' => Hash::make('chris'),
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
@@ -77,7 +77,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Bethany Bleile',
             'email' => 'bbleile@national.ballet.ca',
-            'password' => 'bethany',
+            'password' => Hash::make('bethany'),
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
@@ -86,7 +86,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Marielle Bryck',
             'email' => 'bbryck@national.ballet.ca',
-            'password' => 'marielle',
+            'password' => Hash::make('marielle'),
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
@@ -95,7 +95,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Deanna Underwood',
             'email' => 'dunderwood@national.ballet.ca',
-            'password' => 'deanna',
+            'password' => Hash::make('deanna'),
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
@@ -104,7 +104,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Steve Cunningham',
             'email' => 'scunningham@national.ballet.ca',
-            'password' => 'steve',
+            'password' => Hash::make('steve'),
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
@@ -113,7 +113,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Madeline Wong',
             'email' => 'mwong@national.ballet.ca',
-            'password' => 'madeline',
+            'password' => Hash::make('madeline'),
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
@@ -122,7 +122,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Veronica McLellan',
             'email' => 'vmclellan@national.ballet.ca',
-            'password' => 'veronica',
+            'password' => Hash::make('veronica'),
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
@@ -131,7 +131,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Demitrios Prevenas',
             'email' => 'dprevenas@national.ballet.ca',
-            'password' => 'demitrios',
+            'password' => Hash::make('demitrios'),
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
@@ -140,7 +140,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Belinda Bale',
             'email' => 'bbale@national.ballet.ca',
-            'password' => 'belinda',
+            'password' => Hash::make('belinda'),
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
@@ -149,7 +149,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Amy McMullen',
             'email' => 'amcmullen@national.ballet.ca',
-            'password' => 'amymac',
+            'password' => Hash::make('amymac'),
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
@@ -158,7 +158,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Keerthi Rajan',
             'email' => 'krajan@national.ballet.ca',
-            'password' => 'keerthi',
+            'password' => Hash::make('keerthi'),
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
@@ -167,7 +167,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Fernando Margueirat',
             'email' => 'fmargueirat@national.ballet.ca',
-            'password' => 'fernando',
+            'password' => Hash::make('fernando'),
             'remember_token' => null,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
