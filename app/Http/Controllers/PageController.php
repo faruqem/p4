@@ -40,18 +40,24 @@ class PageController extends Controller
             'message' => 'required|string|between:5,500',
         ]);
 
-        #Retrieve form values
-        $name = $request->input('name');
-        $userEmail = $request->input('email');
-        $message = $request->input('message');
-        $to = 'faruqem@yahoo.com';
-        $subject = 'Message from Developer Best Friends Site';
+        $data = array(
+            'request' => $request
+        );
 
-        #Instantiate and call the SendEmail class instance to send the message
-        $sendMail = new SendEmail($name, $userEmail, $message, $to, $subject);
-        $confMessage = $sendMail->send();
+        \Mail::send([], $data, function ($message) use ($request) {
+            #Retrieve form values
+            $userName = $request->input('name');
+            $userEmail = $request->input('email');
+            $userMessage = $request->input('message') . ' *** Sender Details - Name: ' . $userName . ', Email: ' . $userEmail . ' ***';
+
+            $to = 'faruqe@gmail.com';
+            $subject = 'Message from Tessitura Report Catalog Site';
+
+            $message->to($to)->subject($subject)->setBody($userMessage);
+        });
 
         #Return the send status message by redirecting to the same page
+        $confMessage = "Your message has been sent successfully. We will be in touch soon.";
         return \Redirect::to('/contact')->with('svConfMessage',$confMessage);
     }
     /*************** End of Contact Page ******************************/

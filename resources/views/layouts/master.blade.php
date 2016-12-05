@@ -10,9 +10,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Fonts -->
         <link href="css/app.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/journal/bootstrap.min.css" rel="stylesheet">
         <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet">
-        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/journal/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         {{-- Yield any page specific CSS files or anything else you might want in the <head> --}}
         @yield('head')
@@ -37,6 +37,7 @@
                 <div id="navbar" class="collapse navbar-collapse">
                   <ul class="nav navbar-nav"><!--left side of nav bar-->
                     <li class="active"><a href="/">Home</a></li>
+                    @if (Auth::user())
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users<span class="caret"></span></a>
                       <ul class="dropdown-menu">
@@ -66,6 +67,7 @@
                         <li><a href="/glossaries/create">Create New</a></li>
                        </ul>
                     </li>
+                    @endif
                     <li><a href="/contact">Contact</a></li>
                 </ul>
                 <!--End Left Side of nav bar-->

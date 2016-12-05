@@ -17,7 +17,7 @@
         <div class="jumbotron">
             <h1>Tessitura Report Catalog</h1>
             <p>Welcome to the Tessitura Report Catalog web application. This site is exclusivley for Ballet Tessitura end-users and developers to view and update Tessitura custom reports and utilities documentation.</p>
-            <p>Please, contact National Ballet of Canada Software and Applications Team if you would like to gain access to the content of this site.</p>
+            <p>Please, login with your Ballet email address to gain access to the content of this site. If you currently don't have an account, please register using your Ballet email address (example@national.ballet.ca) and then send us an access request using the contact form.</p>
         </div>
     </div>
 @endsection
