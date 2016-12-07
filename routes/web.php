@@ -17,10 +17,20 @@
 #Home page
 Route::get('/', 'PageController@home')->name('page.home');
 
-#Contact page
-//Route::get('/contact', function() {dump(Config::get('mail'));});
+#Show a form to create a new contact mail
 Route::get('/contact', 'PageController@contact')->name('page.contact');
+
+#Process the contact form to send the message
 Route::post('/contact', 'PageController@contactPost')->name('page.contactPost');
+
+
+
+/****************************************************************************
+* Report resource
+*****************************************************************************/
+# Index page to show all the reports
+Route::get('/reports', 'ReportController@index')->name('reports.index')->middleware('auth');
+
 
 
 
@@ -54,6 +64,24 @@ Route::delete('/glossaries/{id}', 'GlossaryController@destroy')->name('glossarie
 # The above Glossary routes *could* all be replaced with this one line:
 # Route::resource('glossaries', 'GlossaryController');
 
+/****************************************************************************
+* Auth resource
+*****************************************************************************/
+# All auth routes
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+#Auto generated home routes by auth
+//Route::get('/home', 'HomeController@index');
+Route::get('/home', 'PageController@home'); //Temp solution. Actual solution: Find and override reset password method
+                                            //in appropriate controller to redirect to route '/' instead of '/home'
+                                            //and commented out this line
+
+
+/****************************************************************************
+* Test Routes
+*****************************************************************************/
+# To check plural of a word in Laravel way
+//Route::get('plural/{word}', function ($word) {return str_plural($word);});
+
+#To check mail configuration
+//Route::get('/mailconfig', function() {dump(Config::get('mail'));});

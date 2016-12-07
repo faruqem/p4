@@ -9,11 +9,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Fonts -->
-        <link href="css/app.css" rel="stylesheet">
+        <!--<link href="css/app.css" rel="stylesheet">-->
+        <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
         <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/journal/bootstrap.min.css" rel="stylesheet">
         <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
+        <!--<link href="css/style.css" rel="stylesheet">-->
+        <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
         {{-- Yield any page specific CSS files or anything else you might want in the <head> --}}
         @yield('head')
     </head>
@@ -51,6 +53,7 @@
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developers<span class="caret"></span></a>
                       <ul class="dropdown-menu">
+                        <li><a href="/reports">All Reports</a></li>
                         <li><a href="#">Add Reports</a></li>
                         <li><a href="#">Update Reports</a></li>
                         <li><a href="#">Delete Reports</a></li>
@@ -122,9 +125,12 @@
         <!-- jQuery CDN -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
-        <script src="js/app.js"></script>
+        <script src="{{ URL::asset('js/app.js') }}"></script>
+        <script src="{{ URL::asset('js/utility.js') }}"></script>
+        <script src="{{ URL::asset('js/dev_tools.js') }}"></script>
+        <!--<script src="js/app.js"></script>
         <script src="js/utility.js"></script>
-        <script src="js/dev_tools.js"></script>
+        <script src="js/dev_tools.js"></script>-->
         {{-- Yield any page specific JS files or anything else you might want at the end of the body --}}
         @yield('body')
     </body>
