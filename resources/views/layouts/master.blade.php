@@ -41,26 +41,14 @@
                     <li class="active"><a href="/">Home</a></li>
                     @if (Auth::user())
                     <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users<span class="caret"></span></a>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reports<span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                        <li><a href="#">Comments</a></li>
-                        <li><a href="#">Ratings</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header"></li>
+                        <li><a href="/reports">View All Reports</a></li>
                         <li><a href="#">My Favorite Reports</a></li>
-                      </ul>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developers<span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="/reports">All Reports</a></li>
-                        <li><a href="#">Add Reports</a></li>
-                        <li><a href="#">Update Reports</a></li>
-                        <li><a href="#">Delete Reports</a></li>
                         <li role="separator" class="divider"></li>
                         <li class="dropdown-header"></li>
-                        <li><a href="#">Revisions</a></li>
-                        <li><a href="/glossaries/create">Create New</a></li>
+                        <li><a href="#">My Comments</a></li>
+                        <li><a href="#">My Ratings</a></li>
                       </ul>
                     </li>
                     <li class="dropdown">
@@ -69,6 +57,16 @@
                         <li><a href="/glossaries">View All</a></li>
                         <li><a href="/glossaries/create">Create New</a></li>
                        </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developers<span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">View All Reports</a></li>
+                        <li><a href="#">Create New Report</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header"></li>
+                        <li><a href="#">My Revisions</a></li>
+                      </ul>
                     </li>
                     @endif
                     <li><a href="/contact">Contact</a></li>

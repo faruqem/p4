@@ -23,20 +23,24 @@ such as a page specific stylesheets.
             <table class="table table-striped table-bordered table-collpsed">
                 <thead>
                     <tr>
-                        <th>Type</th>
                         <th>Category</th>
                         <th>Name</th>
                         <th>Description</th>
+                        <th>Type</th>
+                        <th>Framework</th>
+                        <th>Origin</th>
                         <th colspan="3">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($reports as $report)
                         <tr>
-                            <td>{{ $report->type->name }}</td>
                             <td>{{ $report->category->name }}</td>
                             <td><a href='/reports/{{ $report->id }}'><h4 class="text-info">{{ $report->name }}</h4></a></td>
                             <td><p>{{ $report->description }}</p></td>
+                            <td>{{ $report->type->name }}</td>
+                            <td>{{ $report->framework->name }}</td>
+                            <td>{{ $report->inhouse ? 'In-house' : 'Canned' }}</td>
                             <td><a class='button' href='/reports/{{ $report->id }}'><i class='fa fa-eye'></i> View</a></td>
                             <td><a class='button' href='/reports/{{ $report->id }}/edit'><i class='fa fa-pencil'></i> Edit</a></td>
                             <td><a class='button' href='/reports/{{ $report->id }}/delete'><i class='fa fa-trash'></i> Delete</a></td>
