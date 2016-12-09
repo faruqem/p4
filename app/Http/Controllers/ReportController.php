@@ -48,6 +48,29 @@ class ReportController extends Controller
     /**
     * GET
     */
+    public function comments()
+    {
+        $user_id = \Auth::user()->id;
+        $comments = \App\Comment::all()->where('user_id',$user_id);
+        $report_ids[] = 0;
+        foreach($comments as $comment) {
+            $report_ids[]=$comment->report_id;
+        }
+        //$comments = App\Post::find(1)->comments()->where('title', 'foo')->first();
+        //dd($report_ids);
+        $reports = Report::where('active',1)
+            ->whereIn('id', $report_ids)
+            ->whereIn('type_id', array(2,3))
+            ->orderby('name','asc')
+            ->get();
+
+        dd($reports);
+        return view('report.comments')->with(['comments' => $comments]);
+    }
+
+    /**
+    * GET
+    */
     public function show($id)
     {
         $report = Report::find($id);

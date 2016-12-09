@@ -34,7 +34,10 @@ Route::get('/reports', 'ReportController@index')->name('reports.index')->middlew
 # Index page to show a user's favorite reports
 Route::get('/reports-fav', 'ReportController@index_fav')->name('reports.index_fav')->middleware('auth');
 
-# Show an individual glossary term
+# Index page to show report list with login user comments
+Route::get('/comments', 'ReportController@comments')->name('reports.comments')->middleware('auth');
+
+# Show individual report
 Route::get('/reports/{title}', 'ReportController@show')->name('reports.show')->middleware('auth');
 
 
