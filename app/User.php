@@ -26,4 +26,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+	* Rating
+	*/
+    public function ratings()
+    {
+        return $this->hasMany('App\Rating');
+    }
 }

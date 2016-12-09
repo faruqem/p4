@@ -51,4 +51,12 @@ class Report extends Model
     {
         return $this->hasMany('App\Screenshot');
     }
+
+    /**
+	* Rating
+	*/
+    public function ratings()
+    {
+        return $this->hasMany('App\Rating');
+    }
 }

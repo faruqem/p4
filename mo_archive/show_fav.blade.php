@@ -19,7 +19,7 @@ such as a page specific stylesheets.
         <div class="page-header">
             <h2>{{ $report->name }}</h2>
         </div>
-        <a class='text-info' href='{{ url()->previous() }}'>Return to Previous Page</a>
+        <a class='text-info' href='/reports-fav'>Return to My Favorite Reports</a>
         <h4>Description</h4>
         <p>{{ $report->description }}</p><br>
         <h4>Note</h4>
@@ -73,7 +73,7 @@ such as a page specific stylesheets.
         <a class='button' href='/reports/{{ $report->id }}/delete'><i class='fa fa-trash'></i> Delete</a>
 
         <br><br>
-        <a class='text-info' href='{{ url()->previous() }}'>Return to Previous Page</a>
+        <a class='text-info' href='/reports-fav'>Return to My Favorite Reports</a>
     </div>
 @endsection
 

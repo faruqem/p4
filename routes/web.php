@@ -31,6 +31,9 @@ Route::post('/contact', 'PageController@contactPost')->name('page.contactPost');
 # Index page to show all the reports
 Route::get('/reports', 'ReportController@index')->name('reports.index')->middleware('auth');
 
+# Index page to show a user's favorite reports
+Route::get('/reports-fav', 'ReportController@index_fav')->name('reports.index_fav')->middleware('auth');
+
 # Show an individual glossary term
 Route::get('/reports/{title}', 'ReportController@show')->name('reports.show')->middleware('auth');
 

@@ -172,5 +172,14 @@ class UsersTableSeeder extends Seeder
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => null
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'Mohiuddin Faruqe',
+            'email' => 'mfaruqe@national.ballet.ca',
+            'password' => Hash::make('faruqe'),
+            'remember_token' => null,
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
+        ]);
     }
 }

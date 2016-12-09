@@ -44,7 +44,7 @@
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reports<span class="caret"></span></a>
                       <ul class="dropdown-menu">
                         <li><a href="/reports">View All Reports</a></li>
-                        <li><a href="#">My Favorite Reports</a></li>
+                        <li><a href="/reports-fav">My Favorite Reports</a></li>
                         <li role="separator" class="divider"></li>
                         <li class="dropdown-header"></li>
                         <li><a href="#">My Comments</a></li>

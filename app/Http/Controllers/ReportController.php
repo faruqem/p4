@@ -17,7 +17,29 @@ class ReportController extends Controller
     {
         $reports = Report::where('active',1)
             ->whereIn('type_id', array(2,3))
-            ->orderby('category_id','asc')
+            ->orderby('name','asc')
+            ->get();
+
+        return view('report.index')->with(['reports' => $reports]);
+    }
+
+    /**
+    * GET
+    */
+    public function index_fav()
+    {
+        $user_id = \Auth::user()->id;
+        $ratings = \App\Rating::all()->where('user_id',$user_id);
+        $report_ids[] = 0;
+        foreach($ratings as $rating) {
+            $report_ids[]=$rating->report_id;
+        }
+        //$comments = App\Post::find(1)->comments()->where('title', 'foo')->first();
+        //dd($report_ids);
+        $reports = Report::where('active',1)
+            ->whereIn('id', $report_ids)
+            ->whereIn('type_id', array(2,3))
+            ->orderby('name','asc')
             ->get();
 
         return view('report.index')->with(['reports' => $reports]);
