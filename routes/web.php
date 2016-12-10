@@ -51,8 +51,14 @@ Route::get('/my-ratings', 'ReportController@my_ratings')->name('reports.my_ratin
 # Index page to show all the reports
 Route::get('/reports-dev', 'ReportDevController@index')->name('reports-dev.index')->middleware('auth');
 
+# Show a form to create a new report item
+Route::get('/reports-dev/create', 'ReportDevController@create')->name('reports-dev.create')->middleware('auth');
+
 # Show individual report with technical information for a developer
 Route::get('/reports-dev/{id}', 'ReportDevController@show')->name('reports-dev.show')->middleware('auth');
+
+# Process the form to create the new report item
+Route::post('/reports-dev', 'ReportDevController@store')->name('reports-dev.store')->middleware('auth');
 
 # Index page to show logged-in developer revisions
 Route::get('/my-revisions', 'ReportDevController@my_revisions')->name('reports.my-revisions')->middleware('auth');
@@ -75,7 +81,7 @@ Route::get('/glossaries/create', 'GlossaryController@create')->name('glossaries.
 Route::post('/glossaries', 'GlossaryController@store')->name('glossaries.store')->middleware('auth');
 
 # Show an individual glossary term
-Route::get('/glossaries/{title}', 'GlossaryController@show')->name('glossaries.show')->middleware('auth');
+Route::get('/glossaries/{id}', 'GlossaryController@show')->name('glossaries.show')->middleware('auth');
 
 # Show form to edit a glossary term
 Route::get('/glossaries/{id}/edit', 'GlossaryController@edit')->name('glossaries.edit')->middleware('auth');

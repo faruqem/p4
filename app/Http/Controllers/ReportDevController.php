@@ -8,6 +8,16 @@ use App\Http\Requests;
 
 use App\Report;
 
+use App\Category;
+
+use App\Type;
+
+use App\Framework;
+
+use App\Tessarea;
+
+use Session;
+
 class ReportDevController extends Controller
 {
     /**
@@ -24,6 +34,94 @@ class ReportDevController extends Controller
 
         return view('reportdev.index')->with(['reports' => $reports, 'page_header' => $page_header]);
     }
+
+    /**
+    * GET
+    */
+    public function create()
+    {
+
+        # Category
+        $categories_for_dropdown = Category::getForDropdown();
+
+        # Type
+        $types_for_dropdown = Type::getForDropdown();
+
+        # Framework
+        $frameworks_for_dropdown = Framework::getForDropdown();
+
+        # Tessitura Area
+        $tessareas_for_checkboxes = Tessarea::getForCheckboxes();
+
+        return view('reportdev.create')->with([
+            'categories_for_dropdown' => $categories_for_dropdown,
+            'types_for_dropdown' => $types_for_dropdown,
+            'frameworks_for_dropdown' => $frameworks_for_dropdown,
+            'tessareas_for_checkboxes' => $tessareas_for_checkboxes
+        ]);
+    }
+
+    /**
+    * POST
+    */
+    public function store(Request $request)
+    {
+
+        # Validate
+        $this->validate($request, [
+            'name' => 'required|min:5',
+            'description' => 'required|min:10',
+            'note_general' => 'min:10',
+            'note_technical' => 'min:10',
+            'first_implementation_dt' => 'date',
+            'last_update_dt' => 'date'
+        ]);
+
+        # If there were errors, Laravel will redirect the
+        # user back to the page that submitted this request
+        # The validator will tack on the form data to the request
+        # so that it's possible (but not required) to pre-fill the
+        # form fields with the data the user had entered
+
+        # If there were NO errors, the script will continue...
+
+        $report = new Report();
+        $report->name = $request->input('name');
+        $report->description = $request->input('description');
+        $report->tess_report_id = $request->input('tess_report_id');
+        $report->definition_file = $request->input('definition_file');
+        $report->sql_proc = $request->input('sql_proc');
+        $report->database = $request->input('database');
+        $report->keywords = $request->input('keywords');
+        $report->note_general = $request->input('note_general');
+        $report->note_technical = $request->input('note_technical');
+
+        $report->first_implementation_dt = $request->input('first_implementation_dt');
+        $report->last_update_dt = $request->input('last_update_dt');
+
+        $report->type_id = $request->type_id;
+        $report->framework_id = $request->framework_id;
+        $report->category_id = $request->category_id;
+        $report->created_by = $request->user()->id;
+
+        $report->schedulable = $request->input('schedulable');
+        $report->verified = $request->input('verified');
+        $report->inhouse = $request->input('inhouse');
+        $report->published = $request->input('published');
+
+        $report->save();
+
+        # Save Tessareas
+        $tessareas = ($request->tessareas) ?: [];
+        $report->tessareas()->sync($tessareas);
+        $report->save();
+
+        Session::flash('flash_message', 'Your report '.$report->name.' has been saved.');
+
+        return redirect('/reports-dev');
+
+    }
+
 
     /**
     * GET

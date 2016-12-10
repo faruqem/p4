@@ -37,8 +37,8 @@ such as a page specific stylesheets.
                         <tr>
                             <td><a href='/reports-dev/{{ $report->id }}'><h4 class="text-info">{{ $report->name }}</h4></a></td>
                             <td>{{ $report->framework->name }}</td>
-                            <td  style="word-wrap: break-word; max-width: 200px;">{{ $report->definition_file }}</td>
-                            <td style="word-wrap: break-word;max-width: 250px;">{{ $report->sql_proc }}</td>
+                            <td  class="long-word">{{ $report->definition_file }}</td>
+                            <td  class="long-word">{{ $report->sql_proc }}</td>
                             <td><a class='button' href='/reports-dev/{{ $report->id }}'><i class='fa fa-eye'></i> View</a></td>
                             <td><a class='button' href='/reports-dev/{{ $report->id }}/edit'><i class='fa fa-pencil'></i> Edit</a></td>
                             <td><a class='button' href='/reports-dev/{{ $report->id }}/delete'><i class='fa fa-trash'></i> Delete</a></td>

@@ -16,4 +16,20 @@ class Framework extends Model
         # Define a one-to-many relationship.
         return $this->hasMany('App\Report');
     }
+
+    /**
+	* Framework list to be used for a dropdwon to select a report framework
+	*/
+    public static function getForDropdown() {
+
+        # Author
+        $frameworks = Framework::orderBy('name', 'ASC')->get();
+
+        $frameworks_for_dropdown = [];
+        foreach($frameworks as $framework) {
+            $frameworks_for_dropdown[$framework->id] = $framework->name;
+        }
+
+        return $frameworks_for_dropdown;
+    }
 }

@@ -43,7 +43,7 @@ code {
 /* Gap from the top menu
 ----------------------------------*/
 header{
-    padding-bottom: 50px;
+    padding-bottom: 90px;
 }
 
 /*
@@ -74,4 +74,9 @@ header{
     top:0;
     left:0;
     background-color:yellow;
+}
+
+.long-word {
+    word-wrap: break-word;
+    max-width: 200px;
 }
