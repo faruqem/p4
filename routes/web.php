@@ -32,10 +32,13 @@ Route::post('/contact', 'PageController@contactPost')->name('page.contactPost');
 Route::get('/reports', 'ReportController@index')->name('reports.index')->middleware('auth');
 
 # Index page to show a user's favorite reports
-Route::get('/reports-fav', 'ReportController@index_fav')->name('reports.index_fav')->middleware('auth');
+Route::get('/my-fav-reports', 'ReportController@my_fav_reports')->name('reports.my_fav_reports')->middleware('auth');
 
-# Index page to show report list with login user comments
-Route::get('/comments', 'ReportController@comments')->name('reports.comments')->middleware('auth');
+# Index page to show report list with logged-in user comments
+Route::get('/my-comments', 'ReportController@my_comments')->name('reports.my_comments')->middleware('auth');
+
+# Index page to show report list with logged-in user ratings
+Route::get('/my-ratings', 'ReportController@my_ratings')->name('reports.my_ratings')->middleware('auth');
 
 # Show individual report
 Route::get('/reports/{title}', 'ReportController@show')->name('reports.show')->middleware('auth');

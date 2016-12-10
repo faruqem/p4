@@ -94,7 +94,7 @@ class RatingsTableSeeder extends Seeder
         DB::table('ratings')->insert([
             'report_id' => $report_id,
             'user_id' => $user_id,
-            'rating' => 5,
+            'rating' => null,
             'favorite' => 1,
             'active' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),

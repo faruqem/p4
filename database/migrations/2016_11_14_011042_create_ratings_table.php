@@ -21,7 +21,7 @@ class CreateRatingsTable extends Migration
             # The main fact/data fields.
             //$table->integer('report_id')->unsigned();
             //$table->integer('user_id')->unsigned();
-            $table->integer('rating');
+            $table->integer('rating')->nullable();
             $table->boolean('favorite');
             $table->boolean('active')->default(1); //Whether this category is still in use or not
 

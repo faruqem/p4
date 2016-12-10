@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    View all Reports
+    {{ $page_header }}
 @endsection
 
 {{--
@@ -17,7 +17,7 @@ such as a page specific stylesheets.
 <!-- Begin page content -->
     <div class="container">
         <div class="page-header">
-            <h2>Reports</h2>
+            <h2>{{ $page_header }}</h2>
         </div>
         <div class="table-responsive">
             <table class="table table-striped table-bordered table-collpsed">
