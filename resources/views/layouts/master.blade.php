@@ -61,11 +61,11 @@
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developers<span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                        <li><a href="#">View All Reports</a></li>
+                        <li><a href="/reports-dev">View All Reports</a></li>
                         <li><a href="#">Create New Report</a></li>
                         <li role="separator" class="divider"></li>
                         <li class="dropdown-header"></li>
-                        <li><a href="#">My Revisions</a></li>
+                        <li><a href="/my-revisions">My Revisions</a></li>
                       </ul>
                     </li>
                     @endif

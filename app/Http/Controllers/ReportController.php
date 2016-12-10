@@ -28,6 +28,21 @@ class ReportController extends Controller
     /**
     * GET
     */
+    public function show($id)
+    {
+        $report = Report::find($id);
+
+        if(is_null($report)) {
+            Session::flash('message','Report not found');
+            return redirect('/reports');
+        }
+
+        return view('report.show')->with(['report' => $report]);
+    }
+    
+    /**
+    * GET
+    */
     public function my_ratings()
     {
         $user_id = \Auth::user()->id;
@@ -90,20 +105,5 @@ class ReportController extends Controller
                                     ORDER BY r.name"
                                 );
         return view('report.my_comments')->with(['comments' => $comments]);
-    }
-
-    /**
-    * GET
-    */
-    public function show($id)
-    {
-        $report = Report::find($id);
-
-        if(is_null($report)) {
-            Session::flash('message','Report not found');
-            return redirect('/reports');
-        }
-
-        return view('report.show')->with(['report' => $report]);
     }
 }

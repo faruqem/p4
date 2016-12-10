@@ -31,6 +31,9 @@ Route::post('/contact', 'PageController@contactPost')->name('page.contactPost');
 # Index page to show all the reports
 Route::get('/reports', 'ReportController@index')->name('reports.index')->middleware('auth');
 
+# Show individual report with general information for a user
+Route::get('/reports/{id}', 'ReportController@show')->name('reports.show')->middleware('auth');
+
 # Index page to show a user's favorite reports
 Route::get('/my-fav-reports', 'ReportController@my_fav_reports')->name('reports.my_fav_reports')->middleware('auth');
 
@@ -40,8 +43,22 @@ Route::get('/my-comments', 'ReportController@my_comments')->name('reports.my_com
 # Index page to show report list with logged-in user ratings
 Route::get('/my-ratings', 'ReportController@my_ratings')->name('reports.my_ratings')->middleware('auth');
 
+
+
+/****************************************************************************
+* Report resource - Developers version
+*****************************************************************************/
+# Index page to show all the reports
+Route::get('/reports-dev', 'ReportDevController@index')->name('reports-dev.index')->middleware('auth');
+
+# Show individual report with technical information for a developer
+Route::get('/reports-dev/{id}', 'ReportDevController@show')->name('reports-dev.show')->middleware('auth');
+
+# Index page to show logged-in developer revisions
+Route::get('/my-revisions', 'ReportDevController@my_revisions')->name('reports.my-revisions')->middleware('auth');
+
 # Show individual report
-Route::get('/reports/{title}', 'ReportController@show')->name('reports.show')->middleware('auth');
+//Route::get('/reports/{title}', 'ReportController@show')->name('reports.show')->middleware('auth');
 
 
 
