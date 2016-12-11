@@ -17,7 +17,7 @@ such as a page specific stylesheets.
 <!-- Begin page content -->
     <div class="container">
         <div class="page-header">
-            <h2>Confirm deletion</h2>
+            <h2>Confirm Deletion!</h2>
         </div>
         <form method='POST' action='/glossaries/{{ $glossary->id }}'>
 
@@ -25,7 +25,7 @@ such as a page specific stylesheets.
 
             {{ csrf_field() }}
 
-            <h4>Are you sure you want to delete <em>{{ $glossary->term }}</em>?</h4><br>
+            <h4 class="text-danger">Are you sure you want to delete <strong><em>{{ $glossary->term }}</em></strong> glossary term?</h4><br>
 
             <input type='submit' class="btn btn-primary" value='Yes'>
             <a href='/glossaries' class="btn btn-primary">Cancel</a>

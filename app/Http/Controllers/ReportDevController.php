@@ -70,8 +70,8 @@ class ReportDevController extends Controller
             'description' => 'required|min:10',
             'note_general' => 'min:10',
             'note_technical' => 'min:10',
-            'first_implementation_dt' => 'date',
-            'last_update_dt' => 'date'
+            'first_implementation_dt' => 'required|date',
+            'last_update_dt' => 'required|date'
         ]);
 
         # If there were errors, Laravel will redirect the
@@ -183,8 +183,8 @@ class ReportDevController extends Controller
             'description' => 'required|min:10',
             'note_general' => 'min:10',
             'note_technical' => 'min:10',
-            'first_implementation_dt' => 'date',
-            'last_update_dt' => 'date'
+            'first_implementation_dt' => 'required|date',
+            'last_update_dt' => 'required|date'
         ]);
 
         #Find and update report
@@ -253,9 +253,31 @@ class ReportDevController extends Controller
             return redirect('/reports-dev');
         }
 
-        # First remove any tessarea associated with this report
+        # First remove any foreign table associated with this report
+        #-----------------------------------------------------------
+        #tessareas
         if($report->tessareas()) {
-            $report->tessareas()->detach();
+            $report->tessareas()->detach(); //Many to many relationship
+        }
+
+        #user comments
+        if($report->comments()) {
+            $report->comments()->delete(); //One to many relationship
+        }
+
+        #user ratings
+        if($report->ratings()) {
+            $report->ratings()->delete();
+        }
+
+        #developer revisions
+        if($report->revisions()) {
+            $report->revisions()->delete();
+        }
+
+        #report screenshots
+        if($report->screenshots()) {
+            $report->screenshots()->delete();
         }
 
         # Then delete the book

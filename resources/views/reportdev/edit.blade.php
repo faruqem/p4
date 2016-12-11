@@ -175,20 +175,20 @@ such as a page specific stylesheets.
                         <tr>
                             <td>
                                 <div class='form-group'>
-                                    <label for="published">Publish upon submission?</label><br>
-                                    <input type="radio" name="published" value="1" {{ ($report->published == 1) ? 'CHECKED' : '' }}> Yes<br>
-                                    <input type="radio" name="published" value="0" {{ ($report->published == 0) ? 'CHECKED' : '' }}> No<br>
-                                    <div class='error'>{{ $errors->first('published') }}</div>
+                                    <label for="verified">Output verified?</label><br>
+                                    <input type="radio" name="verified" value="1" {{ ($report->verified == 1) ? 'CHECKED' : '' }}> Yes<br>
+                                    <input type="radio" name="verified" value="0" {{ ($report->verified == 0) ? 'CHECKED' : '' }}> No<br>
+                                    <div class='error'>{{ $errors->first('verified') }}</div>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div class='form-group'>
-                                    <label for="verified">Output verified?</label><br>
-                                    <input type="radio" name="verified" value="1" {{ ($report->verified == 1) ? 'CHECKED' : '' }}> Yes<br>
-                                    <input type="radio" name="verified" value="0" {{ ($report->verified == 0) ? 'CHECKED' : '' }}> No<br>
-                                    <div class='error'>{{ $errors->first('verified') }}</div>
+                                    <label for="published">Publish upon submission?</label><br>
+                                    <input type="radio" name="published" value="1" {{ ($report->published == 1) ? 'CHECKED' : '' }}> Yes<br>
+                                    <input type="radio" name="published" value="0" {{ ($report->published == 0) ? 'CHECKED' : '' }}> No<br>
+                                    <div class='error'>{{ $errors->first('published') }}</div>
                                 </div>
                             </td>
                         </tr>

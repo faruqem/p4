@@ -78,7 +78,7 @@ such as a page specific stylesheets.
                 <input type='text' id='keywords' class="form-control" name='keywords'  value='{{ old("keywords") }}'>
                 <div class='text-danger'>{{ $errors->first('keywords') }}</div>
             </div>
-            
+
             <div class='form-group'>
                 <label for="sql_proc">SQL Procedure</label>
                 <input type='text' id='sql_proc' class="form-control" name='sql_proc'  value='{{ old("sql_proc") }}'>
@@ -172,20 +172,20 @@ such as a page specific stylesheets.
                         <tr>
                             <td>
                                 <div class='form-group'>
-                                    <label for="published">Publish upon submission?</label><br>
-                                    <input type="radio" name="published" value="1" checked> Yes<br>
-                                    <input type="radio" name="published" value="0"> No<br>
-                                    <div class='error'>{{ $errors->first('schedulable') }}</div>
+                                    <label for="verified">Output verified?</label><br>
+                                    <input type="radio" name="verified" value="1" checked> Yes<br>
+                                    <input type="radio" name="verified" value="0"> No<br>
+                                    <div class='error'>{{ $errors->first('verified') }}</div>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div class='form-group'>
-                                    <label for="verified">Output verified?</label><br>
-                                    <input type="radio" name="verified" value="1" checked> Yes<br>
-                                    <input type="radio" name="verified" value="0"> No<br>
-                                    <div class='error'>{{ $errors->first('verified') }}</div>
+                                    <label for="published">Publish upon submission?</label><br>
+                                    <input type="radio" name="published" value="1" checked> Yes<br>
+                                    <input type="radio" name="published" value="0"> No<br>
+                                    <div class='error'>{{ $errors->first('schedulable') }}</div>
                                 </div>
                             </td>
                         </tr>
