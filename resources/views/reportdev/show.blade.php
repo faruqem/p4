@@ -92,8 +92,8 @@ such as a page specific stylesheets.
             </div>
         @endforeach
         <br>
-        <a class='button' href='/reports/{{ $report->id }}/edit'><i class='fa fa-pencil'></i> Edit</a>
-        <a class='button' href='/reports/{{ $report->id }}/delete'><i class='fa fa-trash'></i> Delete</a>
+        <a class='button' href='/reports-dev/{{ $report->id }}/edit'><i class='fa fa-pencil'></i> Edit</a>
+        <a class='button' href='/reports-dev/{{ $report->id }}/delete'><i class='fa fa-trash'></i> Delete</a>
 
         <br><br>
         <a class='text-info' href='{{ url()->previous() }}'>Return to Previous Page</a>

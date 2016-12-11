@@ -138,6 +138,136 @@ class ReportDevController extends Controller
         return view('reportdev.show')->with(['report' => $report]);
     }
 
+
+    /**
+    * GET
+    */
+    public function edit($id)
+    {
+        $report = Report::find($id);
+
+        # Category
+        $categories_for_dropdown = Category::getForDropdown();
+
+        # Type
+        $types_for_dropdown = Type::getForDropdown();
+
+        # Framework
+        $frameworks_for_dropdown = Framework::getForDropdown();
+
+        # Tessitura Area
+        $tessareas_for_checkboxes = Tessarea::getForCheckboxes();
+
+        # Just the tessareas for this report
+        $tessareas_for_this_report = [];
+        foreach($report->tessareas as $tessarea) {
+            $tessareas_for_this_report[] = $tessarea->name;
+        }
+
+        return view('reportdev.edit')->with(
+        [
+            'report' => $report,
+            'categories_for_dropdown' => $categories_for_dropdown,
+            'types_for_dropdown' => $types_for_dropdown,
+            'frameworks_for_dropdown' => $frameworks_for_dropdown,
+            'tessareas_for_checkboxes' => $tessareas_for_checkboxes,
+            'tessareas_for_this_report' => $tessareas_for_this_report
+        ]);
+    }
+
+    /**
+    * POST
+    */
+    public function update(Request $request, $id)
+    {
+        # Validate
+        # Validate
+        $this->validate($request, [
+            'name' => 'required|min:5',
+            'description' => 'required|min:10',
+            'note_general' => 'min:10',
+            'note_technical' => 'min:10',
+            'first_implementation_dt' => 'date',
+            'last_update_dt' => 'date'
+        ]);
+
+        #Find and update report
+        $report = Report::find($request->id);
+        $report->name = $request->input('name');
+        $report->description = $request->input('description');
+        $report->tess_report_id = $request->input('tess_report_id');
+        $report->definition_file = $request->input('definition_file');
+        $report->sql_proc = $request->input('sql_proc');
+        $report->database = $request->input('database');
+        $report->keywords = $request->input('keywords');
+        $report->note_general = $request->input('note_general');
+        $report->note_technical = $request->input('note_technical');
+
+        $report->first_implementation_dt = $request->input('first_implementation_dt');
+        $report->last_update_dt = $request->input('last_update_dt');
+
+        $report->type_id = $request->type_id;
+        $report->framework_id = $request->framework_id;
+        $report->category_id = $request->category_id;
+        $report->created_by = $request->user()->id;
+
+        $report->schedulable = $request->input('schedulable');
+        $report->verified = $request->input('verified');
+        $report->inhouse = $request->input('inhouse');
+        $report->published = $request->input('published');
+
+        $report->save();
+
+        # Save Tessareas
+        $tessareas = ($request->tessareas) ?: [];
+        $report->tessareas()->sync($tessareas);
+        $report->save();
+
+        #Done
+        Session::flash('flash_message', 'Your report '.$report->name.' has been updated.');
+
+        return redirect('/reports-dev');
+    }
+
+
+    /**
+	* GET
+    * Page to confirm deletion
+	*/
+    public function delete($id) {
+
+        $report = Report::find($id);
+
+        return view('reportdev.delete')->with('report', $report);
+    }
+
+    /**
+    * POST
+    */
+    public function destroy($id)
+    {
+        # Get the report to be deleted
+        $report = Report::find($id);
+
+        if(is_null($report)) {
+            Session::flash('message','Report not found.');
+            return redirect('/reports-dev');
+        }
+
+        # First remove any tessarea associated with this report
+        if($report->tessareas()) {
+            $report->tessareas()->detach();
+        }
+
+        # Then delete the book
+        $report->delete();
+
+        # Finish
+        Session::flash('flash_message', $report->name.' was deleted.');
+        return redirect('/reports-dev');
+    }
+
+
     /**
     * GET
     */

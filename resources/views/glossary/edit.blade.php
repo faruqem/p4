@@ -45,7 +45,7 @@ such as a page specific stylesheets.
             </div>
 
             <button type="submit" class="btn btn-primary">Save changes</button>
-            <a href='/glossaries' class="btn btn-primary">Cancel</a>
+            <a href='{{ url()->previous() }}' class="btn btn-primary">Cancel</a>
 
             <div class='error'>
                 @if(count($errors) > 0)

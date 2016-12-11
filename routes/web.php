@@ -54,11 +54,23 @@ Route::get('/reports-dev', 'ReportDevController@index')->name('reports-dev.index
 # Show a form to create a new report item
 Route::get('/reports-dev/create', 'ReportDevController@create')->name('reports-dev.create')->middleware('auth');
 
+# Process the form to create the new report item
+Route::post('/reports-dev', 'ReportDevController@store')->name('reports-dev.store')->middleware('auth');
+
 # Show individual report with technical information for a developer
 Route::get('/reports-dev/{id}', 'ReportDevController@show')->name('reports-dev.show')->middleware('auth');
 
-# Process the form to create the new report item
-Route::post('/reports-dev', 'ReportDevController@store')->name('reports-dev.store')->middleware('auth');
+# Show form to edit a report
+Route::get('/reports-dev/{id}/edit', 'ReportDevController@edit')->name('reports_dev.edit')->middleware('auth');
+
+# Process form to update the report item
+Route::put('/reports-dev/{id}', 'ReportDevController@update')->name('reports_dev.update')->middleware('auth');
+
+# Get route to confirm deletion of a report item
+Route::get('/reports-dev/{id}/delete', 'ReportDevController@delete')->name('reports_dev.delete')->middleware('auth');
+
+# Delete route to actually destroy the glossary term
+Route::delete('/reports-dev/{id}', 'ReportDevController@destroy')->name('reports_dev.destroy')->middleware('auth');
 
 # Index page to show logged-in developer revisions
 Route::get('/my-revisions', 'ReportDevController@my_revisions')->name('reports.my-revisions')->middleware('auth');
@@ -90,7 +102,7 @@ Route::get('/glossaries/{id}/edit', 'GlossaryController@edit')->name('glossaries
 Route::put('/glossaries/{id}', 'GlossaryController@update')->name('glossaries.update')->middleware('auth');
 
 # Get route to confirm deletion of a glossary term
-Route::get('/glossaries/{id}/delete', 'GlossaryController@delete')->name('glossaries.destroy')->middleware('auth');
+Route::get('/glossaries/{id}/delete', 'GlossaryController@delete')->name('glossaries.delete')->middleware('auth');
 
 # Delete route to actually destroy the glossary term
 Route::delete('/glossaries/{id}', 'GlossaryController@destroy')->name('glossaries.destroy')->middleware('auth');
