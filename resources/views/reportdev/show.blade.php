@@ -55,6 +55,7 @@ such as a page specific stylesheets.
                 </tbody>
             </table>
         </div>
+
         <h4>Other Details</h4>
         <div class="table-responsive">
             <table class="table table-striped table-bordered table-collpsed">
@@ -76,6 +77,28 @@ such as a page specific stylesheets.
                         <td>{{ $report->inhouse ? 'In-house' : 'Canned' }}</td>
                         <td>{{ $report->first_implementation_dt }}</td>
                         <td>{{ $report->last_update_dt }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Status</h4>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-collpsed">
+                <thead>
+                    <tr>
+                        <th>Verified</th>
+                        <th>Published</th>
+                        <th>Active</th>
+                        <th>Discontinued</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ $report->verified ? 'Yes' : 'No' }}</td>
+                        <td>{{ $report->published ? 'Yes' : 'No' }}</td>
+                        <td>{{ $report->active ? 'Yes' : 'No' }}</td>
+                        <td>{{ $report->discontinued ? 'Yes' : 'No' }}</td>
                     </tr>
                 </tbody>
             </table>

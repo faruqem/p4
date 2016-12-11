@@ -19,7 +19,7 @@ such as a page specific stylesheets.
         <div class="page-header">
             <h2>Edit {{ $report->name }}</h2>
         </div>
-        <form method='POST' action='/reports-dev/{$report->id}'>
+        <form method='POST' action='/reports-dev/{{$report->id}}'>
 
             {{ method_field('PUT') }}
 
@@ -178,7 +178,7 @@ such as a page specific stylesheets.
                                     <label for="published">Publish upon submission?</label><br>
                                     <input type="radio" name="published" value="1" {{ ($report->published == 1) ? 'CHECKED' : '' }}> Yes<br>
                                     <input type="radio" name="published" value="0" {{ ($report->published == 0) ? 'CHECKED' : '' }}> No<br>
-                                    <div class='error'>{{ $errors->first('schedulable') }}</div>
+                                    <div class='error'>{{ $errors->first('published') }}</div>
                                 </div>
                             </td>
                         </tr>
@@ -195,6 +195,7 @@ such as a page specific stylesheets.
                     </tbody>
                 </table>
             </div>
+
             <div class="table-responsive">
                 <table class="table table-bordered table-collpsed">
                     <tbody>
@@ -211,6 +212,31 @@ such as a page specific stylesheets.
                                     <label for='last_update_dt'>Last Update Date</label>
                                     <input type='date' id='last_update_dt' class='form-control' name='last_update_dt'  value='{{ old("last_update_dt", $report->last_update_dt) }}'>
                                     <div class='text-danger'>{{ $errors->first('last_update_dt') }}</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-collpsed">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class='form-group'>
+                                    <label for="active">Is the report row active?</label><br>
+                                    <input type="radio" name="active" value="1" {{ ($report->active == 1) ? 'CHECKED' : '' }}> Yes<br>
+                                    <input type="radio" name="active" value="0" {{ ($report->active == 0) ? 'CHECKED' : '' }}> No<br>
+                                    <div class='error'>{{ $errors->first('active') }}</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class='form-group'>
+                                    <label for="active">Is the report discontinued?</label><br>
+                                    <input type="radio" name="discontinued" value="1" {{ ($report->discontinued == 1) ? 'CHECKED' : '' }}> Yes<br>
+                                    <input type="radio" name="discontinued" value="0" {{ ($report->discontinued == 0) ? 'CHECKED' : '' }}> No<br>
+                                    <div class='error'>{{ $errors->first('discontinued') }}</div>
                                 </div>
                             </td>
                         </tr>

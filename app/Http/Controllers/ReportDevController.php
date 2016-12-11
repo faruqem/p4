@@ -25,12 +25,9 @@ class ReportDevController extends Controller
     */
     public function index()
     {
-        $page_header = "All Reports - Technical";
+        $page_header = "All Reports - Technical Info";
 
-        $reports = Report::where('active',1)
-            ->whereIn('type_id', array(2,3))
-            ->orderby('name','asc')
-            ->get();
+        $reports = Report::all();
 
         return view('reportdev.index')->with(['reports' => $reports, 'page_header' => $page_header]);
     }
@@ -181,7 +178,6 @@ class ReportDevController extends Controller
     public function update(Request $request, $id)
     {
         # Validate
-        # Validate
         $this->validate($request, [
             'name' => 'required|min:5',
             'description' => 'required|min:10',
@@ -193,7 +189,8 @@ class ReportDevController extends Controller
 
         #Find and update report
         $report = Report::find($request->id);
-        $report->name = $request->input('name');
+        $report->name = $request->name;
+
         $report->description = $request->input('description');
         $report->tess_report_id = $request->input('tess_report_id');
         $report->definition_file = $request->input('definition_file');
@@ -215,6 +212,8 @@ class ReportDevController extends Controller
         $report->verified = $request->input('verified');
         $report->inhouse = $request->input('inhouse');
         $report->published = $request->input('published');
+        $report->active = $request->input('active');
+        $report->discontinued = $request->input('discontinued');
 
         $report->save();
 

@@ -18,7 +18,9 @@ class ReportController extends Controller
         $page_header = "All Reports";
 
         $reports = Report::where('active',1)
-            ->whereIn('type_id', array(2,3))
+            ->where('published',1)
+            ->where('discontinued',0)
+            ->whereIn('type_id', array(2,3)) //Only show report and utility type customization to the end users
             ->orderby('name','asc')
             ->get();
 
@@ -39,7 +41,7 @@ class ReportController extends Controller
 
         return view('report.show')->with(['report' => $report]);
     }
-    
+
     /**
     * GET
     */
