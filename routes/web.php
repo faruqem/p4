@@ -131,3 +131,6 @@ Route::get('/home', 'PageController@home'); //Temp solution. Actual solution: Fi
 
 #To check mail configuration
 //Route::get('/mailconfig', function() {dump(Config::get('mail'));});
+
+#Checking user role
+//Route::get('/userrole',function(){dump(App\User::find(Auth::id())->roles->whereIn('id',array(2,3))->count());});

@@ -50,4 +50,13 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Revision');
     }
+
+    /**
+	* Roles
+	*/
+    public function roles()
+    {
+        # With timetsamps() will ensure the pivot table has its created_at/updated_at fields automatically maintained
+        return $this->belongsToMany('App\Role')->withTimestamps();
+    }
 }

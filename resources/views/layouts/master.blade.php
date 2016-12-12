@@ -23,70 +23,72 @@
         <!-- Fixed navbar -->
         <header>
             <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
-              <div class="container">
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="/">Tessitura Report Catalog</a>
-                </div>
-                <div id="navbar" class="collapse navbar-collapse">
-                  <ul class="nav navbar-nav"><!--left side of nav bar-->
-                    <li class="active"><a href="/">Home</a></li>
-                    @if (Auth::user())
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reports<span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="/reports">View All Reports</a></li>
-                        <li><a href="/my-fav-reports">My Favorite Reports</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header"></li>
-                        <li><a href="/my-comments">My Comments</a></li>
-                        <li><a href="/my-ratings">My Ratings</a></li>
-                      </ul>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Glossaries<span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="/glossaries">View All</a></li>
-                        <li><a href="/glossaries/create">Create New</a></li>
-                       </ul>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developers<span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="/reports-dev">View All Reports</a></li>
-                        <li><a href="/reports-dev/create">Create New Report</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header"></li>
-                        <li><a href="/my-revisions">My Revisions</a></li>
-                      </ul>
-                    </li>
-                    @endif
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-                <!--End Left Side of nav bar-->
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Tessitura Report Catalog</a>
+                    </div>
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav"><!--left side of nav bar-->
+                            <li class="active"><a href="/">Home</a></li>
+                            @if (Auth::user()) <!--if an authorized user -->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reports<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/reports">View All Reports</a></li>
+                                    <li><a href="/my-fav-reports">My Favorite Reports</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li class="dropdown-header"></li>
+                                    <li><a href="/my-comments">My Comments</a></li>
+                                    <li><a href="/my-ratings">My Ratings</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Glossaries<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/glossaries">View All</a></li>
+                                    <li><a href="/glossaries/create">Create New</a></li>
+                                </ul>
+                            </li>
+                                @if ((\App\User::find(Auth::id())->roles->whereIn('id',array(2,3))->count()) > 0) <!--if admin or a developer -->
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developers<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/reports-dev">View All Reports</a></li>
+                                        <li><a href="/reports-dev/create">Create New Report</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li class="dropdown-header"></li>
+                                        <li><a href="/my-revisions">My Revisions</a></li>
+                                    </ul>
+                                </li>
+                                @endif
+                            @endif
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
+                        <!--End Left Side of nav bar-->
 
-                <!-- Start Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                Logged in as {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
+                        <!-- Start Right Side Of Navbar -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <!-- Authentication Links -->
+                            @if (Auth::guest())
+                            <li><a href="{{ url('/login') }}">Login</a></li>
+                            <li><a href="{{ url('/register') }}">Register</a></li>
+                            @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Logged in as {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ url('/logout') }}"
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ url('/logout') }}"
                                         onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
+                                        document.getElementById('logout-form').submit();">
                                         Logout
                                     </a>
 
@@ -96,14 +98,13 @@
                                 </li>
                             </ul>
                         </li>
-                    @endif
-                </ul>
-                <!-- End Right Side Of Navbar -->
-
+                        @endif
+                    </ul>
+                    <!-- End Right Side Of Navbar -->
                 </div><!--/.nav-collapse -->
-              </div>
-            </nav>
-        </header>
+            </div>
+        </nav>
+    </header>
 
         <!-- Begin page content -->
         <section>
