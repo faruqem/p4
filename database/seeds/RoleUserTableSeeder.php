@@ -31,7 +31,7 @@ class RoleUserTableSeeder extends Seeder
             'updated_at' => null
         ]);
 
-        $role_id = DB::table('roles')->where('name', 'Administrator')->pluck('id')->first();
+        $role_id = DB::table('roles')->where('name', 'Power User')->pluck('id')->first();
         $user_id = DB::table('users')->where('email', 'jamal@harvard.edu')->pluck('id')->first();
         DB::table('role_user')->insert([
             'role_id' => $role_id,

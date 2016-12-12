@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    {{ $glossary->term }}
+    Success!
 @endsection
 
 {{--
@@ -17,15 +17,10 @@ such as a page specific stylesheets.
 <!-- Begin page content -->
     <div class="container">
         <div class="page-header">
-            <h2>{{ $glossary->term }}</h2>
+            <h2>Success!</h2>
         </div>
-        <p>{{ $glossary->definition }}</p><br>
-        @if ((\App\User::find(Auth::id())->roles->whereIn('id',array(2,3,4))->count()) > 0)
-            <a class='button' href='/glossaries/{{ $glossary->id }}/edit'><i class='fa fa-pencil'></i> Edit</a>
-            <a class='button' href='/glossaries/{{ $glossary->id }}/delete'><i class='fa fa-trash'></i> Delete</a>
-        @endif
-        <br><br>
-        <a class='text-info' href='/glossaries'>Return to Glossaries page</a>
+        Success! The glossary term {{ $term }} was added.
+        <a href='/glossaries/create'>Add another one...</a>
     </div>
 @endsection
 

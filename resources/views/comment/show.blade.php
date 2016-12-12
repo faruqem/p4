@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    {{ $glossary->term }}
+    View Comment
 @endsection
 
 {{--
@@ -17,15 +17,17 @@ such as a page specific stylesheets.
 <!-- Begin page content -->
     <div class="container">
         <div class="page-header">
-            <h2>{{ $glossary->term }}</h2>
+            <h2>Your Comment on report <strong><em>{{ $comment->report->name }}</em></strong></h2>
         </div>
-        <p>{{ $glossary->definition }}</p><br>
-        @if ((\App\User::find(Auth::id())->roles->whereIn('id',array(2,3,4))->count()) > 0)
-            <a class='button' href='/glossaries/{{ $glossary->id }}/edit'><i class='fa fa-pencil'></i> Edit</a>
-            <a class='button' href='/glossaries/{{ $glossary->id }}/delete'><i class='fa fa-trash'></i> Delete</a>
-        @endif
+        <h4>Comment</h4>
+        <p>{{ $comment->description }}</p>
+        <p><strong>Date:</strong> {{ $comment->comment_dt }}</p><br>
+
+        <a class='button' href='/comments/{{ $comment->id }}/edit'><i class='fa fa-pencil'></i> Edit</a>
+        <a class='button' href='/comments/{{ $comment->id }}/delete'><i class='fa fa-trash'></i> Delete</a>
+
         <br><br>
-        <a class='text-info' href='/glossaries'>Return to Glossaries page</a>
+        <a class='text-info' href='/my-comments'>Return to <strong>My Comments</strong> page</a>
     </div>
 @endsection
 

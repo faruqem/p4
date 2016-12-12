@@ -37,12 +37,6 @@ Route::get('/reports/{id}', 'ReportController@show')->name('reports.show')->midd
 # Index page to show a user's favorite reports
 Route::get('/my-fav-reports', 'ReportController@my_fav_reports')->name('reports.my_fav_reports')->middleware('auth');
 
-# Index page to show report list with logged-in user comments
-Route::get('/my-comments', 'ReportController@my_comments')->name('reports.my_comments')->middleware('auth');
-
-# Index page to show report list with logged-in user ratings
-Route::get('/my-ratings', 'ReportController@my_ratings')->name('reports.my_ratings')->middleware('auth');
-
 
 
 /****************************************************************************
@@ -72,12 +66,44 @@ Route::get('/reports-dev/{id}/delete', 'ReportDevController@delete')->name('repo
 # Delete route to actually destroy the glossary term
 Route::delete('/reports-dev/{id}', 'ReportDevController@destroy')->name('reports_dev.destroy')->middleware('auth');
 
-# Index page to show logged-in developer revisions
-Route::get('/my-revisions', 'ReportDevController@my_revisions')->name('reports.my-revisions')->middleware('auth');
-
 # Show individual report
 //Route::get('/reports/{title}', 'ReportController@show')->name('reports.show')->middleware('auth');
 
+
+
+/****************************************************************************
+* User Comment
+*****************************************************************************/
+# Index page to show report list with logged-in user comments
+Route::get('/my-comments', 'CommentController@my_comments')->name('comments.my_comments')->middleware('auth');
+# Show a form to let a user make a comment on a report
+Route::get('/comments/create', 'CommentController@create')->name('comments.create')->middleware('auth');
+# Process the form to save the new comment
+Route::post('/comments', 'CommentController@store')->name('comments.store')->middleware('auth');
+# Show an individual comment
+Route::get('/comments/{id}', 'CommentController@show')->name('comments.show')->middleware('auth');
+# Show form to edit a comment
+Route::get('/comments/{id}/edit', 'CommentController@edit')->name('comments.edit')->middleware('auth');
+# Process form to edit a comment
+Route::put('/comments/{id}', 'CommentController@update')->name('comments.update')->middleware('auth');
+# Get route to confirm deletion of a comment
+Route::get('/comments/{id}/delete', 'CommentController@delete')->name('comments.delete')->middleware('auth');
+# Delete route to actually destroy the comment
+Route::delete('/comments/{id}', 'CommentController@destroy')->name('comments.destroy')->middleware('auth');
+
+
+/****************************************************************************
+* User Rating
+*****************************************************************************/
+# Index page to show report list with logged-in user ratings
+Route::get('/my-ratings', 'RatingController@my_ratings')->name('ratings.my_ratings')->middleware('auth');
+
+
+/****************************************************************************
+* Developer Revision
+*****************************************************************************/
+# Index page to show logged-in developer revisions
+Route::get('/my-revisions', 'RevisionController@my_revisions')->name('revisions.my-revisions')->middleware('auth');
 
 
 /****************************************************************************

@@ -44,6 +44,7 @@
                                     <li><a href="/my-fav-reports">My Favorite Reports</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li class="dropdown-header"></li>
+                                    <li><a href="/comments/create">Comment on a Report</a></li>
                                     <li><a href="/my-comments">My Comments</a></li>
                                     <li><a href="/my-ratings">My Ratings</a></li>
                                 </ul>
@@ -52,7 +53,9 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Glossaries<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/glossaries">View All</a></li>
-                                    <li><a href="/glossaries/create">Create New</a></li>
+                                    @if ((\App\User::find(Auth::id())->roles->whereIn('id',array(2,3,4))->count()) > 0)
+                                        <li><a href="/glossaries/create">Create New</a></li>
+                                    @endif
                                 </ul>
                             </li>
                                 @if ((\App\User::find(Auth::id())->roles->whereIn('id',array(2,3))->count()) > 0) <!--if admin or a developer -->

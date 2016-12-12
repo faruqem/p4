@@ -24,9 +24,11 @@ such as a page specific stylesheets.
                 <a href='/glossaries/{{ $glossary->id }}'><h4 class="text-info">{{ $glossary->term }}</h4></a>
                 <p>{{ $glossary->definition }}</p>
 
-                <a class='button' href='/glossaries/{{ $glossary->id }}/edit'><i class='fa fa-pencil'></i> Edit</a>
-                <!--<a class='button' href='/glossaries/{{ $glossary->id }}'><i class='fa fa-eye'></i> View</a>-->
-                <a class='button' href='/glossaries/{{ $glossary->id }}/delete'><i class='fa fa-trash'></i> Delete</a>
+                <a class='button' href='/glossaries/{{ $glossary->id }}'><i class='fa fa-eye'></i> View</a>
+                @if ((\App\User::find(Auth::id())->roles->whereIn('id',array(2,3,4))->count()) > 0)
+                    <a class='button' href='/glossaries/{{ $glossary->id }}/edit'><i class='fa fa-pencil'></i> Edit</a>
+                    <a class='button' href='/glossaries/{{ $glossary->id }}/delete'><i class='fa fa-trash'></i> Delete</a>
+                @endif
             </div><br>
         @endforeach
     </div>
