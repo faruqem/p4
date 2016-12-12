@@ -25,8 +25,8 @@ such as a page specific stylesheets.
 
             {{ csrf_field() }}
 
-            <h4 class="text-danger">Are you sure you want to delete <span><strong><em>{{ $report->name }}</em></strong></span>?.</h4><br>
             <p class="text-danger"><span><strong>WARNING:</strong></span> This will remove all related user comments, ratings, developers revision history etc. Deleted data is not recoverable. We highly recommend you edit the report to mark it inactive or dicontinued instead.</p><br>
+            <h4 class="text-danger">Still you want to proceed with deleting item: <span><strong><em>{{ $report->name }}</em></strong></span>?.</h4><br>
 
             <input type='submit' class="btn btn-primary" value='Yes'>
             <a href='{{ url()->previous() }}' class="btn btn-primary">Cancel</a>

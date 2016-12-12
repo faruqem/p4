@@ -51,6 +51,7 @@ class ReportController extends Controller
         $ratings = \DB::select("SELECT t.report_id,
                                         t.id AS rating_id,
                                         r.name AS report_name,
+                                        t.favorite,
                                         t.rating
                                     FROM reports r
                                         INNER JOIN ratings t ON r.id = t.report_id

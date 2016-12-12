@@ -42,8 +42,8 @@ such as a page specific stylesheets.
                             <td>{{ $report->framework->name }}</td>
                             <td>{{ $report->inhouse ? 'In-house' : 'Canned' }}</td>
                             <td><a class='button' href='/reports/{{ $report->id }}'><i class='fa fa-eye'></i> View</a></td>
-                            <td><a class='button' href='/reports/{{ $report->id }}/edit'><i class='fa fa-pencil'></i> Edit</a></td>
-                            <td><a class='button' href='/reports/{{ $report->id }}/delete'><i class='fa fa-trash'></i> Delete</a></td>
+                            <!--<td><a class='button' href='/reports/{{ $report->id }}/edit'><i class='fa fa-pencil'></i> Edit</a></td>
+                            <td><a class='button' href='/reports/{{ $report->id }}/delete'><i class='fa fa-trash'></i> Delete</a></td>-->
                         </tr>
                     @endforeach
                 </tbody>

@@ -19,6 +19,7 @@
         var useSeparator = U.findElem("use-separator");
         var wordCase = U.findElem("word-case");
         var savePreference = U.findElem("save-preference");
+        var flashMessage = U.findElem("flash_message");
 
 
         //Retrieve and set user preference
@@ -31,6 +32,8 @@
                 saveUserPreference();
             }
         });*/
+
+        flashMessage.addEventListener("click", function(){this.style.display = 'none';});
 
         //Save user preference on change of values
         totWords.addEventListener("change", saveUserPreference);

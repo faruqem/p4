@@ -115,7 +115,7 @@ class GlossaryController extends Controller
         $glossary->save();
 
         # Finish
-        Session::flash('flash_message', 'Your changes to '. $glossary->term .' were saved.');
+        Session::flash('flash_message', 'Your changes to '. $glossary->term .' are saved.');
         return redirect('/glossaries');
     }
 

@@ -75,4 +75,20 @@ class Report extends Model
     {
         return $this->hasMany('App\Revision');
     }
+
+    /**
+	* Report list to be used for a dropdwon
+	*/
+    public static function getForDropdown() {
+
+        # Report
+        $reports = Report::orderBy('name', 'ASC')->get();
+
+        $reports_for_dropdown = [];
+        foreach($reports as $report) {
+            $reports_for_dropdown[$report->id] = $report->name;
+        }
+
+        return $reports_for_dropdown;
+    }
 }
