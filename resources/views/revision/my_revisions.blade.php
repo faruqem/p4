@@ -35,9 +35,9 @@ such as a page specific stylesheets.
                             <td><a href='/reports-dev/{{ $revision->report_id }}'><h4 class="text-info">{{ $revision->report_name }}</h4></a></td>
                             <td><p>{{ $revision->revision }}</p></td>
                             <td>{{ $revision->revision_dt }}</td>
-                            <td><a class='button' href='/my-revisions/{{ $revision->revision_id }}'><i class='fa fa-eye'></i> View</a></td>
-                            <td><a class='button' href='/my-revisions/{{ $revision->revision_id }}/edit'><i class='fa fa-pencil'></i> Edit</a></td>
-                            <td><a class='button' href='/my-revisions/{{ $revision->revision_id }}/delete'><i class='fa fa-trash'></i> Delete</a></td>
+                            <td><a class='button' href='/revisions/{{ $revision->revision_id }}'><i class='fa fa-eye'></i> View</a></td>
+                            <td><a class='button' href='/revisions/{{ $revision->revision_id }}/edit'><i class='fa fa-pencil'></i> Edit</a></td>
+                            <td><a class='button' href='/revisions/{{ $revision->revision_id }}/delete'><i class='fa fa-trash'></i> Delete</a></td>
                         </tr>
                     @endforeach
                 </tbody>

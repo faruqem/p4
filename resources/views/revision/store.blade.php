@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Save successful!
+    Success!
 @endsection
 
 {{--
@@ -19,8 +19,8 @@ such as a page specific stylesheets.
         <div class="page-header">
             <h2>Success!</h2>
         </div>
-        The comment is sucessfully added.
-        <a href='/comments/create'>Add another one...</a>
+        Success! The revision is added.
+        <a href='/revisions/create'>Add another one...</a>
     </div>
 @endsection
 

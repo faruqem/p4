@@ -60,7 +60,7 @@ class CommentController extends Controller
             'description' => 'required'
         ]);
 
-        #Create a new glossary object
+        #Create a new comment object
         $comment = new Comment();
 
         # Get the data from the form

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Save successful!
+    View Revision
 @endsection
 
 {{--
@@ -17,10 +17,17 @@ such as a page specific stylesheets.
 <!-- Begin page content -->
     <div class="container">
         <div class="page-header">
-            <h2>Success!</h2>
+            <h2>Your Revision on report <strong><em>{{ $revision->report->name }}</em></strong></h2>
         </div>
-        The comment is sucessfully added.
-        <a href='/comments/create'>Add another one...</a>
+        <h4>Revision</h4>
+        <p>{{ $revision->description }}</p>
+        <p><strong>Date:</strong> {{ $revision->revision_dt }}</p><br>
+
+        <a class='button' href='/revisions/{{ $revision->id }}/edit'><i class='fa fa-pencil'></i> Edit</a>
+        <a class='button' href='/revisions/{{ $revision->id }}/delete'><i class='fa fa-trash'></i> Delete</a>
+
+        <br><br>
+        <a class='text-info' href='/my-revisions'>Return to <strong>My Revision</strong> page</a>
     </div>
 @endsection
 

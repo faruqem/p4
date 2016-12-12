@@ -100,10 +100,24 @@ Route::get('/my-ratings', 'RatingController@my_ratings')->name('ratings.my_ratin
 
 
 /****************************************************************************
-* Developer Revision
+* Developer Revisions
 *****************************************************************************/
 # Index page to show logged-in developer revisions
 Route::get('/my-revisions', 'RevisionController@my_revisions')->name('revisions.my-revisions')->middleware('auth');
+# Show a form to let a developer add a revision to a report
+Route::get('/revisions/create', 'RevisionController@create')->name('revisions.create')->middleware('auth');
+# Process the form to save the new revision
+Route::post('/revisions', 'RevisionController@store')->name('revisions.store')->middleware('auth');
+# Show an individual revision
+Route::get('/revisions/{id}', 'RevisionController@show')->name('revisions.show')->middleware('auth');
+# Show form to edit a revision
+Route::get('/revisions/{id}/edit', 'RevisionController@edit')->name('revisions.edit')->middleware('auth');
+# Process form to edit a revision
+Route::put('/revisions/{id}', 'RevisionController@update')->name('revisions.update')->middleware('auth');
+# Get route to confirm deletion of a revision
+Route::get('/revisions/{id}/delete', 'RevisionController@delete')->name('revisions.delete')->middleware('auth');
+# Delete route to actually destroy the revision
+Route::delete('/revisions/{id}', 'RevisionController@destroy')->name('revisions.destroy')->middleware('auth');
 
 
 /****************************************************************************

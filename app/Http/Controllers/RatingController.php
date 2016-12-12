@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Report;
+
+use App\Revision;
+
+use Session;
+
 class RatingController extends Controller
 {
     /**

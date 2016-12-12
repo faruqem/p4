@@ -43,9 +43,12 @@
                                     <li><a href="/reports">View All Reports</a></li>
                                     <li><a href="/my-fav-reports">My Favorite Reports</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li class="dropdown-header"></li>
+                                    <li class="dropdown-header">Comments</li>
                                     <li><a href="/comments/create">Comment on a Report</a></li>
                                     <li><a href="/my-comments">My Comments</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li class="dropdown-header">Ratings</li>
+                                    <li><a href="/ratings/create">Rate a Report</a></li>
                                     <li><a href="/my-ratings">My Ratings</a></li>
                                 </ul>
                             </li>
@@ -65,7 +68,8 @@
                                         <li><a href="/reports-dev">View All Reports</a></li>
                                         <li><a href="/reports-dev/create">Create New Report</a></li>
                                         <li role="separator" class="divider"></li>
-                                        <li class="dropdown-header"></li>
+                                        <li class="dropdown-header">Revisions</li>
+                                        <li><a href="/revisions/create">Add Revision to a Report</a></li>
                                         <li><a href="/my-revisions">My Revisions</a></li>
                                     </ul>
                                 </li>

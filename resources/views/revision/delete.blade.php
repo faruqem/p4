@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Save successful!
+    Confirm deletion!
 @endsection
 
 {{--
@@ -17,10 +17,19 @@ such as a page specific stylesheets.
 <!-- Begin page content -->
     <div class="container">
         <div class="page-header">
-            <h2>Success!</h2>
+            <h2>Confirm Deletion!</h2>
         </div>
-        The comment is sucessfully added.
-        <a href='/comments/create'>Add another one...</a>
+        <form method='POST' action='/revisions/{{ $revision->id }}'>
+
+            {{ method_field('DELETE') }}
+
+            {{ csrf_field() }}
+
+            <h4 class="text-danger">Are you sure you want to delete the revision?</h4><br>
+
+            <input type='submit' class="btn btn-primary" value='Yes'>
+            <a href='{{ url()->previous() }}' class="btn btn-primary">Cancel</a>
+        </form>
     </div>
 @endsection
 
