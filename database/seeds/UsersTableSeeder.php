@@ -39,6 +39,15 @@ class UsersTableSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
+            'name' => 'Jedi',
+            'email' => 'jedi@harvard.edu',
+            'password' => Hash::make('helloworld'),
+            'remember_token' => null,
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
+        ]);
+
+        DB::table('users')->insert([
             'name' => 'Kruti Shah',
             'email' => 'kshah@national.ballet.ca',
             'password' => Hash::make('kruti'),

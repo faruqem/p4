@@ -41,6 +41,16 @@ class RoleUserTableSeeder extends Seeder
             'updated_at' => null
         ]);
 
+        $role_id = DB::table('roles')->where('name', 'User')->pluck('id')->first();
+        $user_id = DB::table('users')->where('email', 'jedi@harvard.edu')->pluck('id')->first();
+        DB::table('role_user')->insert([
+            'role_id' => $role_id,
+            'user_id' => $user_id,
+            'active' => 1,
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => null
+        ]);
+
         $role_id = DB::table('roles')->where('name', 'Developer')->pluck('id')->first();
         $user_id = DB::table('users')->where('email', 'kshah@national.ballet.ca')->pluck('id')->first();
         DB::table('role_user')->insert([
