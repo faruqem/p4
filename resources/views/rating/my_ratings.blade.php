@@ -36,8 +36,8 @@ such as a page specific stylesheets.
                             <td><p>{{ $rating->rating }}</p></td>
                             <td><p>{{ ($rating->favorite == 1) ? 'Yes' : 'No' }}</p></td>
                             <!--<td><a class='button' href='/my-ratings/{{ $rating->rating_id }}'><i class='fa fa-eye'></i> View</a></td>-->
-                            <td><a class='button' href='/my-ratings/{{ $rating->rating_id }}/edit'><i class='fa fa-pencil'></i> Edit</a></td>
-                            <td><a class='button' href='/my-ratings/{{ $rating->rating_id }}/delete'><i class='fa fa-trash'></i> Delete</a></td>
+                            <td><a class='button' href='/ratings/{{ $rating->rating_id }}/edit'><i class='fa fa-pencil'></i> Edit</a></td>
+                            <td><a class='button' href='/ratings/{{ $rating->rating_id }}/delete'><i class='fa fa-trash'></i> Delete</a></td>
                         </tr>
                     @endforeach
                 </tbody>

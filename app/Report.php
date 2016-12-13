@@ -91,4 +91,21 @@ class Report extends Model
 
         return $reports_for_dropdown;
     }
+
+    /**
+	* Report list without a Rating
+	*/
+    public static function getForDropdownUnrated() {
+
+        # Report
+        $user_id = \Auth::user()->id;
+        $query = "SELECT * FROM reports WHERE id NOT IN(SELECT report_id FROM ratings WHERE user_id=" . $user_id . ") ORDER BY name";
+        $reports = \DB::select($query);
+        $reports_for_dropdown = [];
+        foreach($reports as $report) {
+            $reports_for_dropdown[$report->id] = $report->name;
+        }
+
+        return $reports_for_dropdown;
+    }
 }

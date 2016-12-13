@@ -97,6 +97,20 @@ Route::delete('/comments/{id}', 'CommentController@destroy')->name('comments.des
 *****************************************************************************/
 # Index page to show report list with logged-in user ratings
 Route::get('/my-ratings', 'RatingController@my_ratings')->name('ratings.my_ratings')->middleware('auth');
+# Show a form to let a user rate a report
+Route::get('/ratings/create', 'RatingController@create')->name('ratings.create')->middleware('auth');
+# Process the form to save the new rating
+Route::post('/ratings', 'RatingController@store')->name('ratings.store')->middleware('auth');
+# Show an individual rating
+Route::get('/ratings/{id}', 'CommentController@show')->name('ratings.show')->middleware('auth');
+# Show form to edit a rating
+Route::get('/ratings/{id}/edit', 'RatingController@edit')->name('ratings.edit')->middleware('auth');
+# Process form to edit a rating
+Route::put('/ratings/{id}', 'RatingController@update')->name('ratings.update')->middleware('auth');
+# Get route to confirm deletion of a rating
+Route::get('/ratings/{id}/delete', 'RatingController@delete')->name('ratings.delete')->middleware('auth');
+# Delete route to actually destroy the rating
+Route::delete('/ratings/{id}', 'RatingController@destroy')->name('ratings.destroy')->middleware('auth');
 
 
 /****************************************************************************
