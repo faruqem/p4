@@ -8,6 +8,14 @@ use App\Http\Requests;
 
 use App\Report;
 
+use App\Category;
+
+use App\Type;
+
+use App\Framework;
+
+use App\Tessarea;
+
 class ReportController extends Controller
 {
     /**
@@ -42,7 +50,7 @@ class ReportController extends Controller
         return view('report.show')->with(['report' => $report]);
     }
 
-    
+
     /**
     * GET
     */
@@ -51,7 +59,7 @@ class ReportController extends Controller
         $page_header = "My Favorite Reports";
 
         $user_id = \Auth::user()->id;
-        $ratings = \App\Rating::all()->where('user_id',$user_id);
+        $ratings = \App\Rating::all()->where('user_id',$user_id)->where('favorite',1);
         $report_ids = [];
         foreach($ratings as $rating) {
             $report_ids[]=$rating->report_id;
@@ -62,6 +70,66 @@ class ReportController extends Controller
             ->whereIn('type_id', array(2,3))
             ->orderby('name','asc')
             ->get();
+
+        return view('report.index')->with(['reports' => $reports, 'page_header' => $page_header]);
+    }
+
+    /**
+    * GET
+    */
+    public function search(){
+        # Category
+        $categories_for_dropdown = Category::getForDropdown();
+
+        # Type
+        $types_for_dropdown = Type::getForDropdown();
+
+        # Framework
+        $frameworks_for_dropdown = Framework::getForDropdown();
+
+        # Tessitura Area
+        $tessareas_for_checkboxes = Tessarea::getForCheckboxes();
+
+        return view('report.search')->with([
+            'categories_for_dropdown' => $categories_for_dropdown,
+            'types_for_dropdown' => $types_for_dropdown,
+            'frameworks_for_dropdown' => $frameworks_for_dropdown,
+            'tessareas_for_checkboxes' => $tessareas_for_checkboxes
+        ]);
+    }
+
+    /**
+    * POST
+    */
+    public function search_result(Request $request){
+        # Validate
+        $this->validate($request, [
+            'keyword' => 'string|min:3',
+            'origin' => 'integer|min:1|max:3'
+        ]);
+
+        $keyword = $request->input('keyword');
+        $origin = $request->origin;
+        $category = $request->category;
+
+        $page_header = 'Search Result';
+
+        $report_ids = Report::search($keyword, $origin);
+
+
+
+        $report_ids_arr = [];
+        foreach($report_ids as $report_id) {
+            $report_ids_arr[]=$report_id->id;
+        }
+
+        $reports = Report::whereIn('id', $report_ids_arr)
+        ->where('active',1)
+        ->where('published',1)
+        ->where('discontinued',0)
+        ->whereIn('type_id', array(2,3)) //Only show report and utility type customization to the end users
+        ->orderby('name','asc')
+        ->get();
 
         return view('report.index')->with(['reports' => $reports, 'page_header' => $page_header]);
     }

@@ -108,4 +108,43 @@ class Report extends Model
 
         return $reports_for_dropdown;
     }
+
+    public static function search($keyword, $origin) {
+        #Setup the criteria (WHERE clause)
+        $criteria = [];
+
+        //Keyword
+        if($keyword) {
+            $criteria [0] = " keywords LIKE('%" . $keyword . "%')"
+                            . " OR name LIKE('%" . $keyword . "%')"
+                            . " OR description LIKE('%" . $keyword . "%')";
+        }
+        else {
+            $criteria [0] = " 1 = 1";
+        }
+
+        //Keyword
+        if($origin && $origin == 1) {
+            $criteria [1] = " AND 1 = 1";
+        } elseif ($origin && $origin == 2) {
+            $criteria [1] = " AND inhouse = 1";
+        } elseif ($origin && $origin == 3) {
+            $criteria [1] = " AND inhouse = 0";
+        } else {
+            $criteria [1] = " AND 1 = 1 ";
+        }
+
+        #Setup the query
+        $query = "SELECT id FROM reports WHERE ";
+        foreach($criteria as $criterion){
+            $query .= $criterion;
+        }
+        $query .= " ORDER BY name";
+
+        #Execute the query
+        $report_ids = \DB::select($query);
+
+        #return the result-set
+        return $report_ids;
+    }
 }
