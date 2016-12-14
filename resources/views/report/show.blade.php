@@ -57,6 +57,73 @@ such as a page specific stylesheets.
                 </tbody>
             </table>
         </div>
+
+        <h4>User Comments</h4>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-collpsed">
+                <thead>
+                    <tr>
+                        <th>Comment</th>
+                        <th>Date</th>
+                        <th>User</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($report->comments as $comment)
+                        <tr>
+                            <td>{{ $comment->description }}</td>
+                            <td>{{ $comment->comment_dt }}</td>
+                            <td>{{ $comment->user->name }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
+        <h4>User Ratings</h4>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-collpsed">
+                <thead>
+                    <tr>
+                        <th>Rate (Out of 5)</th>
+                        <th>Marked Favorite</th>
+                        <th>User</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($report->ratings as $rating)
+                        <tr>
+                            <td>{{ $rating->rating }}</td>
+                            <td>{{ ($rating->favorite == 1) ? 'Yes' : '' }}</td>
+                            <td>{{ $rating->user->name }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Revision History</h4>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-collpsed">
+                <thead>
+                    <tr>
+                        <th>Revision</th>
+                        <th>Date</th>
+                        <th>Developer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($report->revisions as $revision)
+                        <tr>
+                            <td>{{ $revision->description }}</td>
+                            <td>{{ $revision->revision_dt }}</td>
+                            <td>{{ $revision->user->name }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
         <h4>Screenshot(s)</h4>
         @foreach($report->screenshots as $screenshot)
             <div class="panel panel-default">
