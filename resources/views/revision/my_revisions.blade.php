@@ -43,6 +43,7 @@ such as a page specific stylesheets.
                 </tbody>
             </table>
         </div>
+        <a class='button' href='http://p4.loc/revisions/create'><i class='fa fa-pencil-square-o'></i> Add another Revision</a>
     </div>
 @endsection
 
