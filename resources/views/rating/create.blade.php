@@ -23,6 +23,10 @@ such as a page specific stylesheets.
 
             {{ csrf_field() }}
 
+            <div class='form-instructions text-success'>
+                <strong>At least rating the report (1-5) or marking it as a favorite is required. Otherwise rating data will not be saved.</strong>
+            </div><br><br>
+
             <div class='form-group'>
                 <label for='report_id'>Select a Report</label>
                 <select name='report_id' id='report_id'>
@@ -45,14 +49,10 @@ such as a page specific stylesheets.
                 <div class='error'>{{ $errors->first('favorite') }}</div>
             </div>
 
-            <div class='form-instructions'>
-                Rating field is required
-            </div>
-
             <button type="submit" class="btn btn-primary">Save Rating</button>
             <a href='/my-ratings' class="btn btn-primary">Cancel</a>
 
-            <div class='error'>
+            <div class='text-danger'>
                 @if(count($errors) > 0)
                     Please correct the errors above and try again.
                 @endif

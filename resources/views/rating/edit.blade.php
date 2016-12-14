@@ -26,6 +26,10 @@ such as a page specific stylesheets.
 
             {{ csrf_field() }}
 
+            <div class='form-instructions text-success'>
+                <strong>At least rating the report (1-5) or marking it as a favorite is required. Otherwise rating data will be removed.</strong>
+            </div><br><br>
+
             <input name='id' value='{{$rating->id}}' type='hidden'>
 
             <div class='form-group'>
@@ -36,7 +40,7 @@ such as a page specific stylesheets.
                     @endforeach
                 </select>
             </div>
-        
+
             <div class='form-group'>
                 <label for="term">Rating</label>
                 <input type='text' id='rating' class="form-control" name='rating' value='{{ old('rating', $rating->rating) }}'>
@@ -50,14 +54,10 @@ such as a page specific stylesheets.
                 <div class='error'>{{ $errors->first('favorite') }}</div>
             </div>
 
-            <div class='text-muted'>
-                All fields are required
-            </div>
-
             <button type="submit" class="btn btn-primary">Save changes</button>
             <a href='{{ url()->previous() }}' class="btn btn-primary">Cancel</a>
 
-            <div class='error'>
+            <div class='text-danger'>
                 @if(count($errors) > 0)
                     Please correct the errors above and try again.
                 @endif

@@ -67,7 +67,7 @@ class ReportController extends Controller
 
         $reports = Report::where('active',1)
             ->whereIn('id', $report_ids)
-            ->whereIn('type_id', array(2,3))
+            //->whereIn('type_id', array(2,3))
             ->orderby('name','asc')
             ->get();
 

@@ -26,6 +26,10 @@ such as a page specific stylesheets.
 
             {{ csrf_field() }}
 
+            <div class='text-success'>
+                <strong>All fields are required</strong>
+            </div><br>
+            
             <input name='id' value='{{$revision->id}}' type='hidden'>
 
             <div class='form-group'>
@@ -45,14 +49,10 @@ such as a page specific stylesheets.
 
             <p><strong>Revision Date:</strong> {{ $revision->revision_dt }}</p>
 
-            <div class='text-muted'>
-                All fields are required
-            </div>
-
             <button type="submit" class="btn btn-primary">Save changes</button>
             <a href='{{ url()->previous() }}' class="btn btn-primary">Cancel</a>
 
-            <div class='error'>
+            <div class='text-danger'>
                 @if(count($errors) > 0)
                     Please correct the errors above and try again.
                 @endif

@@ -31,7 +31,6 @@ class RatingController extends Controller
                                         AND r.active = 1
                                         AND t.deleted_at IS NULL
                                         AND t.active = 1
-                                        AND t.rating IS NOT NULL
                                     ORDER BY r.name"
                                 );
         return view('rating.my_ratings')->with(['ratings' => $ratings]);
@@ -58,20 +57,33 @@ class RatingController extends Controller
 
         # Validate
         $this->validate($request, [
-
-            'rating' => 'required|integer|min:1|max:5'
+            'rating' => 'integer|min:1|max:5',
+            'favorite' => 'integer|min:0|max:1',
+            'report_id' => 'integer'
         ]);
+
+        //At least a rating and marking the report as favorite is required.
+        if(!$request->rating and $request->favorite == 0 ){
+            Session::flash('flash_message', 'Nothing to save!');
+            return redirect('/my-ratings');
+        }
 
         #Create a new rating object
         $rating = new Rating();
 
-        # Get the data from the form
-        $rating->rating = $request->input('rating');
+        //Check if rating is empty then pass null to it
+        if(!$request->input('rating')) {
+            $rating->rating = null;
+        }
+        else {
+            $rating->rating = $request->input('rating');
+        }
+        # Get the other data from the form
         $rating->report_id = $request->report_id;
         $rating->favorite = $request->favorite;
         $rating->user_id = \Auth::user()->id; //Grab the login user ID for this
 
-        #Save the data
+        #Save the rating
         $rating->save();
 
         Session::flash('flash_message', 'Your rating is saved.');
@@ -117,15 +129,30 @@ class RatingController extends Controller
     public function update(Request $request, $id)
     {
 
-        # Validate
         $this->validate($request, [
-            'rating' => 'required'
+            'rating' => 'integer|min:1|max:5',
+            'favorite' => 'integer|min:0|max:1',
+            'report_id' => 'integer'
         ]);
 
         # Find and update revision
         $rating = Rating::find($request->id);
 
-        $rating->rating = $request->rating;
+        //At least a rating and marking the report as favorite is required.
+        if(!$request->rating and $request->favorite == 0 ){
+            $rating->delete();
+            Session::flash('flash_message', 'Rating has been removed.');
+            return redirect('/my-ratings');
+        }
+
+        //Check if rating is empty then pass null to it
+        if(!$request->input('rating')) {
+            $rating->rating = null;
+        }
+        else {
+            $rating->rating = $request->input('rating');
+        }
+
         $rating->favorite = $request->favorite;
         $rating->report_id = $request->report_id;
 

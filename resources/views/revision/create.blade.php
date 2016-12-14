@@ -23,6 +23,10 @@ such as a page specific stylesheets.
 
             {{ csrf_field() }}
 
+            <div class='form-instructions text-success'>
+                <strong>All fields are required</strong>
+            </div><br>
+
             <div class='form-group'>
                 <label for='report_id'>Select a Report</label>
                 <select name='report_id' id='report_id'>
@@ -38,14 +42,10 @@ such as a page specific stylesheets.
                 <div class='text-danger'>{{ $errors->first('description') }}</div>
             </div>
 
-            <div class='form-instructions'>
-                All fields are required
-            </div>
-
             <button type="submit" class="btn btn-primary">Save Revision</button>
             <a href='/my-revisions' class="btn btn-primary">Cancel</a>
 
-            <div class='error'>
+            <div class='text-danger'>
                 @if(count($errors) > 0)
                     Please correct the errors above and try again.
                 @endif

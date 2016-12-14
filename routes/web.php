@@ -190,6 +190,7 @@ Route::get('/home', 'PageController@home'); //Temp solution. Actual solution: Fi
 #Checking user role
 //Route::get('/userrole',function(){dump(App\User::find(Auth::id())->roles->whereIn('id',array(2,3))->count());});
 
+/*
 Route::get('/debug', function() {
 
     echo '<pre>';
@@ -200,7 +201,7 @@ Route::get('/debug', function() {
     echo '<h1>Debugging?</h1>';
     if(config('app.debug')) echo "Yes"; else echo "No";
 
-    echo '<h1>Database Config</h1>';
+    echo '<h1>Database Config</h1>';*/
     /*
     The following line will output your MySQL credentials.
     Uncomment it only if you're having a hard time connecting to the database and you
@@ -209,7 +210,7 @@ Route::get('/debug', function() {
     running on your live server, making your credentials public.
     */
     //print_r(config('database.connections.mysql'));
-
+/*
     echo '<h1>Test Database Connection</h1>';
     try {
         $results = DB::select('SHOW DATABASES;');
@@ -223,3 +224,4 @@ Route::get('/debug', function() {
 
     echo '</pre>';
 });
+*/

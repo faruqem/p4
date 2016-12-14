@@ -34,7 +34,7 @@ such as a page specific stylesheets.
                         <tr>
                             <td><a href='/reports/{{ $rating->report_id }}'><h4 class="text-info">{{ $rating->report_name }}</h4></a></td>
                             <td><p>{{ $rating->rating }}</p></td>
-                            <td><p>{{ ($rating->favorite == 1) ? 'Yes' : 'No' }}</p></td>
+                            <td><p>{{ ($rating->favorite == 1) ? 'Yes' : '' }}</p></td>
                             <!--<td><a class='button' href='/my-ratings/{{ $rating->rating_id }}'><i class='fa fa-eye'></i> View</a></td>-->
                             <td><a class='button' href='/ratings/{{ $rating->rating_id }}/edit'><i class='fa fa-pencil'></i> Edit</a></td>
                             <td><a class='button' href='/ratings/{{ $rating->rating_id }}/delete'><i class='fa fa-trash'></i> Delete</a></td>
@@ -43,6 +43,7 @@ such as a page specific stylesheets.
                 </tbody>
             </table>
         </div>
+        <a class='button' href='http://p4.loc/ratings/create'><i class='fa fa-pencil-square-o'></i> Rate another Report</a>
     </div>
 @endsection
 
