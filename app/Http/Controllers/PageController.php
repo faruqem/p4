@@ -14,9 +14,13 @@ class PageController extends Controller
     * Home page
     ****************************************************************/
     #Display the page
-    public function home()
+    public function home(Request $request)
     {
-        return view('page.home');
+        if($request->user()){
+            return redirect('/search');
+        } else {
+            return view('page.home');
+        }
     }
     /*************** End of Home Page ******************************/
 

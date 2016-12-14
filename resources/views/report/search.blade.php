@@ -19,7 +19,7 @@ such as a page specific stylesheets.
         <div class="page-header">
             <h2>Search Report(s)</h2>
         </div>
-        <form method='POST' action='/search-result'>
+        <form method='GET' action='/search-result'>
 
             {{ csrf_field() }}
 
@@ -51,7 +51,7 @@ such as a page specific stylesheets.
                                 <div class='form-group'>
                                     <label for='category_id'>Category</label>
                                     <select name='category_id' id='category_id'>
-                                        <option value='0'>Any</option>
+                                        <option value='999'>Any</option>
                                         @foreach($categories_for_dropdown as $category_id => $category)
                                             <option value='{{ $category_id }}'>{{ $category }}</option>
                                         @endforeach
@@ -63,7 +63,7 @@ such as a page specific stylesheets.
                                 <div class='form-group'>
                                     <label for='tessarea_id'>Tessitura Area</label>
                                     <select name='tessarea_id' id='tessarea_id'>
-                                        <option value='0'>Any</option>
+                                        <option value='999'>Any</option>
                                         @foreach($tessareas_for_checkboxes as $tessarea_id => $tessarea)
                                             <option value='{{ $tessarea_id }}'>{{ $tessarea }}</option>
                                         @endforeach
@@ -77,7 +77,7 @@ such as a page specific stylesheets.
                                 <div class='form-group'>
                                     <label for='framework_id'>Framework</label>
                                     <select name='framework_id' id='framework_id'>
-                                        <option value='0'>Any</option>
+                                        <option value='999'>Any</option>
                                         @foreach($frameworks_for_dropdown as $framework_id => $framework)
                                             <option value='{{ $framework_id }}'>{{ $framework }}</option>
                                         @endforeach
@@ -89,7 +89,7 @@ such as a page specific stylesheets.
                                 <div class='form-group'>
                                     <label for='type_id'>Type</label>
                                     <select name='type_id' id='type_id'>
-                                        <option value='0'>Any</option>
+                                        <option value='999'>Any</option>
                                         @foreach($types_for_dropdown as $type_id => $type)
                                             <option value='{{ $type_id }}'>{{ $type }}</option>
                                         @endforeach

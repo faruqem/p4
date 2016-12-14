@@ -37,7 +37,7 @@ Route::get('/my-fav-reports', 'ReportController@my_fav_reports')->name('reports.
 # To start search
 Route::get('/search', 'ReportController@search')->name('reports.search')->middleware('auth');
 # To show the search result
-Route::post('/search-result', 'ReportController@search_result')->name('reports.search_result')->middleware('auth');
+Route::get('/search-result', 'ReportController@search_result')->name('reports.search_result')->middleware('auth');
 
 
 /****************************************************************************

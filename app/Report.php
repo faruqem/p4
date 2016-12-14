@@ -109,15 +109,15 @@ class Report extends Model
         return $reports_for_dropdown;
     }
 
-    public static function search($keyword, $origin) {
+    public static function search($keyword, $origin, $category, $tessarea, $framework, $type) {
         #Setup the criteria (WHERE clause)
         $criteria = [];
 
         //Keyword
         if($keyword) {
-            $criteria [0] = " keywords LIKE('%" . $keyword . "%')"
+            $criteria [0] = " (keywords LIKE('%" . $keyword . "%')"
                             . " OR name LIKE('%" . $keyword . "%')"
-                            . " OR description LIKE('%" . $keyword . "%')";
+                            . " OR description LIKE('%" . $keyword . "%'))";
         }
         else {
             $criteria [0] = " 1 = 1";
@@ -134,11 +134,45 @@ class Report extends Model
             $criteria [1] = " AND 1 = 1 ";
         }
 
+        //Category
+        if($category == 999) {
+            $criteria [2] = " AND 1 = 1";
+        } else {
+            $criteria [2] = " AND category_id = " . $category;
+        }
+
+        //Tessarea
+        if( $tessarea == 999) {
+            $criteria [3] = " AND 1 = 1";
+        } else {
+            $criteria [3] = " AND tessarea_id = " . $tessarea;
+        }
+
+        //Framework
+        if( $framework == 999) {
+            $criteria [4] = " AND 1 = 1";
+        } else {
+            $criteria [4] = " AND framework_id = " . $framework;
+        }
+
+        //Type
+        if( $type == 999) {
+            $criteria [5] = " AND 1 = 1";
+        } else {
+            $criteria [5] = " AND type_id = " . $type;
+        }
+
         #Setup the query
-        $query = "SELECT id FROM reports WHERE ";
+        if($tessarea != 999){
+            $query = "SELECT DISTINCT a.id FROM reports a JOIN report_tessarea b ON a.id = b.report_id WHERE ";
+        }else{
+            $query = "SELECT DISTINCT id FROM reports WHERE ";
+        }
+
         foreach($criteria as $criterion){
             $query .= $criterion;
         }
+
         $query .= " ORDER BY name";
 
         #Execute the query

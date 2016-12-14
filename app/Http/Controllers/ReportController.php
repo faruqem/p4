@@ -105,16 +105,24 @@ class ReportController extends Controller
         # Validate
         $this->validate($request, [
             'keyword' => 'string|min:3',
-            'origin' => 'integer|min:1|max:3'
+            'origin' => 'integer|min:1|max:3',
+            'category_id' => 'integer',
+            'tessarea_id' => 'integer',
+            'framework_id' => 'integer',
+            'type_id' => 'integer'
         ]);
 
         $keyword = $request->input('keyword');
         $origin = $request->origin;
-        $category = $request->category;
+        $category = $request->category_id;
+        $tessarea = $request->tessarea_id;
+        $framework= $request->framework_id;
+        $type = $request->type_id;
+
 
         $page_header = 'Search Result';
 
-        $report_ids = Report::search($keyword, $origin);
+        $report_ids = Report::search($keyword, $origin, $category, $tessarea, $framework, $type);
 
 
 
@@ -127,7 +135,7 @@ class ReportController extends Controller
         ->where('active',1)
         ->where('published',1)
         ->where('discontinued',0)
-        ->whereIn('type_id', array(2,3)) //Only show report and utility type customization to the end users
+        //->whereIn('type_id', array(2,3)) //Only show report and utility type customization to the end users
         ->orderby('name','asc')
         ->get();
 
