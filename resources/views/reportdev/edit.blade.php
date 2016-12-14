@@ -25,6 +25,16 @@ such as a page specific stylesheets.
 
             {{ csrf_field() }}
 
+            <div class='form-instructions text-success'>
+                <strong>Report name and description are required. If you are adding a screenshot then file name is required; without this, other fields will also not be saved.</strong>
+            </div><br>
+
+            <div class='text-danger'>
+                @if(count($errors) > 0)
+                    Please correct the errors above (you may need to scroll down) and try again.
+                @endif
+            </div>
+
             <div class='form-group'>
                 <label for="name">Name</label>
                 <input type='text' id='naqme' class="form-control" name='name'  value='{{ old('name', $report->name) }}'>
@@ -286,9 +296,15 @@ such as a page specific stylesheets.
                 </table>
             </div>
 
-            <div class='form-instructions'>
-                Except technical and general note fields, all other fields are required.
+            <div class='text-danger'>
+                @if(count($errors) > 0)
+                    Please correct the errors above (you may need to scroll up) and try again.
+                @endif
             </div>
+
+            <div class='form-instructions text-success'>
+                <strong>Report name and description are required. If you are adding a screenshot then file name is required; without this, other fields will also not be saved.</strong>
+            </div><br>
 
             <button type="submit" class="btn btn-primary">Save Report</button>
             <button type="reset" class="btn btn-primary">Reset</button>
@@ -296,15 +312,7 @@ such as a page specific stylesheets.
             <p></p>
             <!--<a href='/reports-dev' class="btn btn-primary">Cancel</a>-->
 
-            {{--
-                <ul class=''>
-                    @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            --}}
-
-            <div class='error'>
+            <div class='text-danger'>
                 @if(count($errors) > 0)
                     Please correct the errors above and try again.
                 @endif

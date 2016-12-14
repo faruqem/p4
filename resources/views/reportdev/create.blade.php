@@ -24,7 +24,7 @@ such as a page specific stylesheets.
             {{ csrf_field() }}
 
             <div class='form-instructions text-success'>
-                <strong>Report name and description are required. If you are adding a screenshot then file name is required; without this other fields will also not be saved.</strong>
+                <strong>Report name and description are required. If you are adding a screenshot then file name is required; without this, other fields will also not be saved.</strong>
             </div>
 
             <div class='text-danger'>
@@ -274,7 +274,7 @@ such as a page specific stylesheets.
             </div>
 
             <div class='form-instructions text-success'>
-                <strong>Report name and description are required. If you are adding a screenshot then file name is required; without this other fields will also not be saved.</strong>
+                <strong>Report name and description are required. If you are adding a screenshot then file name is required; without this, other fields will also not be saved.</strong>
             </div><br>
 
             <button type="submit" class="btn btn-primary">Save Report</button>
