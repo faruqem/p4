@@ -190,19 +190,6 @@ Route::get('/home', 'PageController@home'); //Temp solution. Actual solution: Fi
 #Checking user role
 //Route::get('/userrole',function(){dump(App\User::find(Auth::id())->roles->whereIn('id',array(2,3))->count());});
 
-Route::get('/debugbar', function() {
-
-    $data = Array('foo' => 'bar');
-    Debugbar::info($data);
-    Debugbar::info('Current environment: '.App::environment());
-    Debugbar::error('Error!');
-    Debugbar::warning('Watch out…');
-    Debugbar::addMessage('Another message', 'mylabel');
-
-    return 'Just demoing some of the features of Debugbar';
-
-});
-
 Route::get('/debug', function() {
 
     echo '<pre>';
