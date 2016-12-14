@@ -20,9 +20,9 @@ class CreateScreenshotsTable extends Migration
 
             # The main fact/data fields.
             //$table->integer('report_id');
-            $table->string('file_name');
-            $table->string('file_Type');
-            $table->string('caption');
+            $table->string('file_name')->nullable();
+            $table->string('file_Type')->nullable();
+            $table->string('caption')->nullable();
             $table->string('description')->nullable();
             $table->boolean('active')->default(1); //Whether this category is still in use or not
 

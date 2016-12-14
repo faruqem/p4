@@ -16,6 +16,8 @@ use App\Framework;
 
 use App\Tessarea;
 
+use App\Screenshot;
+
 use Session;
 
 class ReportDevController extends Controller
@@ -70,8 +72,12 @@ class ReportDevController extends Controller
             'description' => 'required|min:10',
             'note_general' => 'min:10',
             'note_technical' => 'min:10',
-            'first_implementation_dt' => 'required|date',
-            'last_update_dt' => 'required|date'
+            'first_implementation_dt' => 'date',
+            'last_update_dt' => 'date',
+            'file_name' => 'string|required_with:caption,ss_description',
+            'caption' => 'string',
+            'file_type' => 'string',
+            'ss_description' => 'string'
         ]);
 
         # If there were errors, Laravel will redirect the
@@ -93,8 +99,18 @@ class ReportDevController extends Controller
         $report->note_general = $request->input('note_general');
         $report->note_technical = $request->input('note_technical');
 
-        $report->first_implementation_dt = $request->input('first_implementation_dt');
-        $report->last_update_dt = $request->input('last_update_dt');
+
+        if($request->input('first_implementation_dt')){
+            $report->first_implementation_dt = $request->input('first_implementation_dt');
+        } else{
+            $report->first_implementation_dt = \Carbon\Carbon::now()->toDateTimeString();
+        }
+
+        if($request->input('first_implementation_dt')){
+            $report->last_update_dt = $request->input('last_update_dt');
+        } else{
+            $report->last_update_dt = \Carbon\Carbon::now()->toDateTimeString();
+        }
 
         $report->type_id = $request->type_id;
         $report->framework_id = $request->framework_id;
@@ -113,8 +129,24 @@ class ReportDevController extends Controller
         $report->tessareas()->sync($tessareas);
         $report->save();
 
+        # Save Screenshots. Save if at least file name is supplied.
+        if($request->input('file_name')){
+
+            $screenshot = new Screenshot();
+
+            $screenshot->file_name = $request->input('file_name');
+            $screenshot->file_type = $request->input('file_type');
+            $screenshot->caption = $request->input('caption');
+            $screenshot->description = $request->input('ss_description');
+
+
+            $report->screenshots()->save($screenshot);
+        }
+
+        # Show the sucess message
         Session::flash('flash_message', 'Your report '.$report->name.' has been saved.');
 
+        # Redirect to  report list
         return redirect('/reports-dev');
 
     }

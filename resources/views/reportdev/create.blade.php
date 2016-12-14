@@ -23,6 +23,16 @@ such as a page specific stylesheets.
 
             {{ csrf_field() }}
 
+            <div class='form-instructions text-success'>
+                <strong>Report name and description are required. If you are adding a screenshot then file name is required; without this other fields will also not be saved.</strong>
+            </div>
+
+            <div class='text-danger'>
+                @if(count($errors) > 0)
+                    Please correct the errors below (you may need to scroll down) and try again.
+                @endif
+            </div><br>
+
             <div class='form-group'>
                 <label for="name">Name</label>
                 <input type='text' id='naqme' class="form-control" name='name'  value='{{ old('name') }}'>
@@ -30,7 +40,7 @@ such as a page specific stylesheets.
             </div>
             <div class='form-group'>
                 <label for="description">Description</label>
-                <textarea id='description' class="form-control" name='description' rows="3"></textarea>
+                <textarea id='description' class="form-control" name='description' rows="3">{{ old("description") }}</textarea>
                 <div class='text-danger'>{{ $errors->first('description') }}</div>
             </div>
 
@@ -122,14 +132,14 @@ such as a page specific stylesheets.
                             <td>
                                 <div class='form-group'>
                                     <label for="note_general">Note General</label>
-                                    <textarea id='note_general' class="form-control" name='note_general' rows="3"></textarea>
+                                    <textarea id='note_general' class="form-control" name='note_general' rows="3">{{ old("note_general") }}</textarea>
                                     <div class='text-danger error'>{{ $errors->first('note_general') }}</div>
                                 </div>
                             </td>
                             <td>
                                 <div class='form-group'>
                                     <label for="note_technical">Note Technical</label>
-                                    <textarea id='note_technical' class="form-control" name='note_technical' rows="3"></textarea>
+                                    <textarea id='note_technical' class="form-control" name='note_technical' rows="3">{{ old("note_technical") }}</textarea>
                                     <div class='text-danger error'>{{ $errors->first('note_technical') }}</div>
                                 </div>
                             </td>
@@ -192,6 +202,48 @@ such as a page specific stylesheets.
                     </tbody>
                 </table>
             </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-collpsed">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class='form-group'>
+                                    <label for="file_name">Screenshot File Name (Including extension. File should be saved in: public/images/screenshots).</label>
+                                    <input type='text' id='file_name' class="form-control" name='file_name'  value='{{ old("file_name") }}'>
+                                    <div class='text-danger'>{{ $errors->first('file_name') }}</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class='form-group'>
+                                    <label for="file_type">File Type</label>
+                                    <input type='text' id='file_type' class="form-control" name='file_type'  value='{{ old("file_type", "JPEG") }}'>
+                                    <div class='text-danger'>{{ $errors->first('file_type') }}</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan=2>
+                                <div class='form-group'>
+                                    <label for="caption">Caption</label>
+                                    <input type='text' id='caption' class="form-control" name='caption'  value='{{ old("caption") }}'>
+                                    <div class='text-danger'>{{ $errors->first('caption') }}</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan=2>
+                                <div class='form-group'>
+                                    <label for="ss_description">Description</label>
+                                    <textarea id='ss_description' class="form-control" name='ss_description' rows="3">{{ old("ss_description") }}</textarea>
+                                    <div class='text-danger error'>{{ $errors->first('ss_description') }}</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
             <div class="table-responsive">
                 <table class="table table-bordered table-collpsed">
                     <tbody>
@@ -213,30 +265,21 @@ such as a page specific stylesheets.
                         </tr>
                     </tbody>
                 </table>
+            </div><br>
+
+            <div class='text-danger'>
+                @if(count($errors) > 0)
+                    Please correct the errors above (you may need to scroll up) and try again.
+                @endif
             </div>
 
-            <div class='form-instructions'>
-                Except technical and general note fields, all other fields are required.
-            </div>
+            <div class='form-instructions text-success'>
+                <strong>Report name and description are required. If you are adding a screenshot then file name is required; without this other fields will also not be saved.</strong>
+            </div><br>
 
             <button type="submit" class="btn btn-primary">Save Report</button>
             <button type="reset" class="btn btn-primary">Reset</button>
             <p></p>
-            <!--<a href='/reports-dev' class="btn btn-primary">Cancel</a>-->
-
-            {{--
-                <ul class=''>
-                    @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            --}}
-
-            <div class='error'>
-                @if(count($errors) > 0)
-                    Please correct the errors above and try again.
-                @endif
-            </div>
 
         </form>
     </div>

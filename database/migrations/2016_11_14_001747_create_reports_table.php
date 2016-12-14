@@ -35,8 +35,8 @@ class CreateReportsTable extends Migration
             $table->boolean('inhouse')->default(1);
             $table->boolean('verified')->default(1);
             $table->boolean('published')->default(1);
-            $table->date('first_implementation_dt')->nullable(); //Report first create date
-            $table->date('last_update_dt')->nullable(); //Report last update date
+            $table->date('first_implementation_dt')->nullable()->default(\Carbon\Carbon::now()->toDateTimeString()); //Report first create date
+            $table->date('last_update_dt')->nullable()->default(\Carbon\Carbon::now()->toDateTimeString()); //Report last update date
             $table->boolean('discontinued')->default(0);
             $table->boolean('active')->default(1); //Whether this category is still in use or not
 
