@@ -193,6 +193,12 @@ class ReportDevController extends Controller
             $tessareas_for_this_report[] = $tessarea->name;
         }
 
+        $screenshot = $report->screenshots->first();
+        if(!$screenshot){
+            $screenshot = new Screenshot();
+        }
+
+
         return view('reportdev.edit')->with(
         [
             'report' => $report,
@@ -200,7 +206,8 @@ class ReportDevController extends Controller
             'types_for_dropdown' => $types_for_dropdown,
             'frameworks_for_dropdown' => $frameworks_for_dropdown,
             'tessareas_for_checkboxes' => $tessareas_for_checkboxes,
-            'tessareas_for_this_report' => $tessareas_for_this_report
+            'tessareas_for_this_report' => $tessareas_for_this_report,
+            'screenshot' => $screenshot
         ]);
     }
 
@@ -215,8 +222,12 @@ class ReportDevController extends Controller
             'description' => 'required|min:10',
             'note_general' => 'min:10',
             'note_technical' => 'min:10',
-            'first_implementation_dt' => 'required|date',
-            'last_update_dt' => 'required|date'
+            'first_implementation_dt' => 'date',
+            'last_update_dt' => 'date',
+            'file_name' => 'string|required_with:caption,ss_description',
+            'caption' => 'string',
+            'file_type' => 'string',
+            'ss_description' => 'string'
         ]);
 
         #Find and update report
@@ -253,6 +264,29 @@ class ReportDevController extends Controller
         $tessareas = ($request->tessareas) ?: [];
         $report->tessareas()->sync($tessareas);
         $report->save();
+
+        #save screenshot
+        if($request->ss_id) { //Update is a screenshot for this report is available
+            $screenshot = Screenshot::find($request->ss_id);
+            if($request->input('file_name')) {
+                $screenshot->file_name = $request->file_name;
+                $screenshot->file_type = $request->type;
+                $screenshot->caption = $request->caption;
+                $screenshot->description = $request->ss_description;
+                $screenshot->save();
+            } else {
+                $screenshot->delete(); //If file name doesn't exist user intention is to delete the file.
+            }
+        } elseif($request->input('file_name')) { //If no screenshot is available right now and new one has to be created
+                $screenshot = new Screenshot();
+
+                $screenshot->file_name = $request->input('file_name');
+                $screenshot->file_type = $request->input('file_type');
+                $screenshot->caption = $request->input('caption');
+                $screenshot->description = $request->input('ss_description');
+
+                $report->screenshots()->save($screenshot);
+        }
 
         #Done
         Session::flash('flash_message', 'Your report '.$report->name.' has been updated.');

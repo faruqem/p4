@@ -202,6 +202,48 @@ such as a page specific stylesheets.
                         <tr>
                             <td>
                                 <div class='form-group'>
+                                    <label for="file_name">Screenshot File Name (Including extension. File should be saved in: public/images/screenshots).</label>
+                                    <input type='text' id='file_name' class="form-control" name='file_name'  value='{{ old("file_name", $screenshot->file_name) }}'>
+                                    <div class='text-danger'>{{ $errors->first('file_name') }}</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class='form-group'>
+                                    <label for="file_type">File Type</label>
+                                    <input type='text' id='file_type' class="form-control" name='file_type'  value='{{ old("file_type", $screenshot->file_type) }}'>
+                                    <div class='text-danger'>{{ $errors->first('file_type') }}</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan=2>
+                                <div class='form-group'>
+                                    <label for="caption">Caption</label>
+                                    <input type='text' id='caption' class="form-control" name='caption'  value='{{ old("caption", $screenshot->caption) }}'>
+                                    <div class='text-danger'>{{ $errors->first('caption') }}</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan=2>
+                                <div class='form-group'>
+                                    <label for="ss_description">Description</label>
+                                    <textarea id='ss_description' class="form-control" name='ss_description' rows="3">{{ old("ss_description", $screenshot->description) }}</textarea>
+                                    <div class='text-danger error'>{{ $errors->first('ss_description') }}</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr><td><input type='hidden' id='ss_id' name='ss_id'  value='{{ $screenshot->id }}'></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-collpsed">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class='form-group'>
                                     <label for='first_implementation_dt'>First Implementation Date</label>
                                     <input type='date' id='first_implementation_dt' class='form-control' name='first_implementation_dt'  value='{{ old("first_implementation_dt", $report->first_implementation_dt) }}'>
                                     <div class='text-danger'>{{ $errors->first('first_implementation_dt') }}</div>
