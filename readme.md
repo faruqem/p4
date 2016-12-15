@@ -4,6 +4,9 @@
 ##Live URL:
 [Tessitura Report Catalog](http://p4.guddi.ca)
 
+#Planning Documentation:
+[Planning Doc](https://docs.google.com/document/d/14-oLlboZjM5LSAK2hEGcNizxwNx4FQUbMHDSKFNDLBA/edit#heading=h.9jqtzjpjb2cj)
+
 ##Demo:
 [Tessitura Report Catalog](http://screencast.com/t/ZFpQk9v8Q)
 
@@ -33,8 +36,6 @@ This application will also help in-house developers to find the relevant system 
 * A power user has all the access that a user has. In addition they can also add, edit and delete a glossary term.
 * An admin or a developer has all the access that a power user has. In addition they can also add, edit and delete a report. They can also add, edit and delete their own revision history and view any developer's revision history. An admin or a developer can also view technical information of a report that a user or power user doesn't have access to.
 
-
-
 ##Outside Resources:
 * [Bootstrap](http://getbootstrap.com/) CSS and JavaScript Framework
 * [Bootstrap theme](https://www.bootstrapcdn.com/bootswatch/)
@@ -42,29 +43,34 @@ This application will also help in-house developers to find the relevant system 
 * [jQuery](https://jquery.com/) JavaScript library
 * [Tessitura](http://www.tessituranetwork.com/) All the sample report screenshots shown are created by Tessitura Application.
 
+##Database Setup and Sample Data for Testing
+* Clone the repository
+* Create a new MySQL database named as tessreports
+* Run $ php artisan migrate:refresh --seed command. This will create all the necessary tables and seed data.
+
+##Test User
+You can use the following test users with different role for testing:
+* Name: Jill, E-Mail: jill@harvard.edu, Password: helloworld, Role: Developer/Admin
+* Name: Jamal, E-Mail: jamal@harvard.edu, Password: helloworld, Role: Power User
+* Name: Jedi, E-Mail: jedi@harvard.edu, Password: helloworld, Role: User
+
+##E-mail Setup
+* Mailgun with a Mailgun sandbox sub-domain for Testing
+* None of the users mentioned above are real and not registered in Mailgun to receive test email.
+* So to test this feature you have to setup your own Mailgun account, update the Laravel mail setup with the necessary mail domain name and credentials. Also need to create your own test mail users. You can also use any other mail server you have access to and set it up accordingly.
+
+
 ##Note for the Grader
-###My class files:
-Folder: app/utilities and files in this folder:
-* UserGenerator.php for Random Users Generator page.
-* PasswordGenerator.php for Random Password Generator page.
-* ChmodPermissionGenerator.php for Permissions Calculator page.
-* SendEmail.php for Contact page.
-* I used badcow/lorem-ipsum external package for Lorem Ipsum Generator page.
 
-###My data files:
-Folder: storgae/app/faruqe and files in this folder:
-* names.json for Random Users Generator's user names.
-* locations.json for Random Users Generator's user locations.
-* quotes.json for Random Users Generator's user profiles.
-* words.josn for for Random Password Generator page.
+### Status
+* The software is 95%+ ready for real life use.
+* Some system data (like report category, type, framework etc.) I used are static and may not be changed in couple  of years or never.  So I haven't created any interface for them at this stage. This will be mostly handles by the seeders which are production ready.
+* While designing the software my main focus was creating a robust foundation. So from the database objects, models and their relationships point of view the design is very solid. I don't have to change them for any new future addition in the future.
+* For role based authentication, I created my own database schema (please, refer to the schema diagrams in the planning doc). I kept options to make it more robust in the future - database schema for the authentication section is designed keeping that in mind. I also kept the Laravel built in users and password_resets tables to take advantage of the Laravel built-in authentication features. My own role based solution wraps around that.
 
-###Other notes:
-* I used the badcow Lorem-Ipsum external package to fulfill the requirement of "You must research and implement at least one external package." For all other tools, including Random Users Generator, I created my own classes and other functionalities.
-* As extras I provided two additional tools and an additional page: Random Password Generator - converted from my P2 project (procedural) to object oriented style; Chmod Permission Calculator and a Contact Me page.
-* Though it was not a requirement, I returned the result set to the same page. I figured how to do it and thought it would give a user better UX.
-* For all my logic code, where I haven't used an external package i.e. except Lorem Ipsum Generator, I created a class for each of my tools instead of putting the logic code directly into the controller.
-* I used the blade old() value function to retrieve and display the old value upon a failed form validation. It worked very well for all the text boxes but not so for the bootstrap checkboxes. Anyway, it was not a requirement for this project. I did it as an extra.
-* I set up SendMail in Digital Ocean to test my Contact Me page. It worked but in Digital Ocean it was extremely slow that's why I disabled the actual send mail part though other functionalities (field validation, success/fail message etc.) of the page are kept intact and it's ready to go upon setting up a new mailing option.
-* I tested my app in IE 11, Google Chrome and FireFox successfully. Piazza discussion mentioned to test it in at least two browsers.
-* I checked my site by passing the home and all the child  pages to the W3C Markup Validation Service and they passed all the validations. I also validated the CSS file I wrote i.e. p3.css and it passed all the CSS validation rules. The app.css came with Laravel so I don't have much control over it.
-* Since none of the page objects is a resource/data object but just a single page, that's why I did not follow the resource style route convention and created a single page controller for all the pages.
+###Browsers for Testing
+* I tested in three browsers - Firefox, Chrome and IE. Firefox was consistent in responding to some JavaScript events (e.g. closing the Flash Message on click.), others have some issues.
+
+###Conventions
+* Report, glossary, rating, revision and comment resource has their own controllers for all four CRUD operations in addition to page, layouts and other authentication controllers.
+* For report there are two controllers - one (ReportController) for users mainly to view and one (ReportDevController) for developers to do all four CRUD operations. So the convention showed in the class followed accordingly for controllers, views, controller functions and routes in addition to database tables, column names, seeders and models. In case of some non-resource objects I used names that makes sense and meaningful.
