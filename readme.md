@@ -77,7 +77,7 @@ You can use the following test users with different role for testing:
 * Some system data (like report category, type, framework etc.) I used are static and may not be changed in couple  of years or never.  So I did not have to create any interface for them at this stage. This will be mostly handled by the seeders which are production ready.
 * For role based authentication, I created my own database schema (please, refer to the schema diagrams in the planning doc). I kept options to make it more robust in the future - database schema for the authentication section is designed keeping that in mind. I also kept the Laravel built in users and password_resets tables to take advantage of the Laravel built-in authentication features. My own role based solution wraps around that.
 
-##Architecture
+###Architecture
 * While designing the software my main focus was creating a robust foundation. So from the database objects, models and their relationships point of view the design is very solid. I don't have to change them for any new feature addition in the future.
 
 ###Browsers for Testing
