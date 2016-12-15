@@ -82,6 +82,7 @@ You can use the following test users with different role for testing:
 
 ###Browsers for Testing
 * I tested in three browsers - Firefox, Chrome and IE. Firefox was consistent in responding to some JavaScript events (e.g. closing the Flash Message on click.), others have some issues.
+* I ran home and all the child pages through W3C Markup Validator and did not see any error only couple of warning because of some Bootstrap class. I hope it's acceptable. I also validated my local CSS and it passed without any error or warning.
 
 ###Conventions
 * Report, glossary, rating, revision and comment resource has their own controllers for all four CRUD operations in addition to page, layouts and other authentication controllers.
