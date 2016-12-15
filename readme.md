@@ -4,7 +4,7 @@
 ##Live URL:
 [Tessitura Report Catalog](http://p4.guddi.ca)
 
-#Planning Documentation:
+##Planning Documentation:
 [Planning Doc](https://docs.google.com/document/d/14-oLlboZjM5LSAK2hEGcNizxwNx4FQUbMHDSKFNDLBA/edit#heading=h.9jqtzjpjb2cj)
 
 ##Demo:
