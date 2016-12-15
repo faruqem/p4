@@ -44,8 +44,8 @@ This application will also help in-house developers to find the relevant system 
 * [Tessitura](http://www.tessituranetwork.com/) All the sample report screenshots shown are created by Tessitura Application.
 
 ##Database Setup and Sample Data for Testing
-* Clone the repository
-* Create a new MySQL database named as tessreports
+* Clone the repository.
+* Create a new MySQL database named as tessreports.
 * Run $ php artisan migrate:refresh --seed command. This will create all the necessary tables and seed data.
 
 ##Test User
