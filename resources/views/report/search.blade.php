@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Search Report(s)
+    Search a Solution
 @endsection
 
 {{--
@@ -17,7 +17,7 @@ such as a page specific stylesheets.
 <!-- Begin page content -->
     <div class="container">
         <div class="page-header">
-            <h2>Search Report(s)</h2>
+            <h2>Search a Solution</h2>
         </div>
         <form method='GET' action='/search-result'>
 

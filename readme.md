@@ -62,11 +62,23 @@ You can use the following test users with different role for testing:
 
 ##Note for the Grader
 
-### Status
-* While designing the software my main focus was creating a robust foundation. So from the database objects, models and their relationships point of view the design is very solid. I don't have to change them for any new feature addition in the future.
-* The software is 95%+ ready for real life use.
+###Project Highlights
+* Role based authentication with my own tables in addition to two Laravel built-in tables.
+* Comprehensive and powerful search feature.
+* Solid base and design with 16 tables including Laravel two built-in authentication tables. Easily extensible in the future without changing the base architecture.
+* Some crafty maneuver while doing the CRUD operations on tables with complex multi tables relationship.
+* Comprehensive and intuitive feature set for end users and developers.
+* 95%+ real life production ready.
+* Tables are seeded with real life test data.
+* A solid effort to bridge the gap between end users and developers.
+
+###Production Readiness
+* The software is 95%+ ready for a real life use.
 * Some system data (like report category, type, framework etc.) I used are static and may not be changed in couple  of years or never.  So I did not have to create any interface for them at this stage. This will be mostly handled by the seeders which are production ready.
 * For role based authentication, I created my own database schema (please, refer to the schema diagrams in the planning doc). I kept options to make it more robust in the future - database schema for the authentication section is designed keeping that in mind. I also kept the Laravel built in users and password_resets tables to take advantage of the Laravel built-in authentication features. My own role based solution wraps around that.
+
+##Architecture
+* While designing the software my main focus was creating a robust foundation. So from the database objects, models and their relationships point of view the design is very solid. I don't have to change them for any new feature addition in the future.
 
 ###Browsers for Testing
 * I tested in three browsers - Firefox, Chrome and IE. Firefox was consistent in responding to some JavaScript events (e.g. closing the Flash Message on click.), others have some issues.
