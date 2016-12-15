@@ -8,7 +8,7 @@
 [Planning Doc](https://docs.google.com/document/d/14-oLlboZjM5LSAK2hEGcNizxwNx4FQUbMHDSKFNDLBA/edit#heading=h.9jqtzjpjb2cj)
 
 ##Demo:
-[Tessitura Report Catalog](http://screencast.com/t/ZFpQk9v8Q)
+[Tessitura Report Catalog](https://www.screencast.com/users/faruqe/folders/Default/media/4a722610-5f24-4154-a3e5-5124f1467e38)
 
 ##Description:
 Tessitura Report Catalog is a web application to manage report documentation for all in-house custom (including some canned) reports and other solutions developed for Tessitura CRM application for a Tessitura licensee organization.
