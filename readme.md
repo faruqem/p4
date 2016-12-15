@@ -71,6 +71,7 @@ You can use the following test users with different role for testing:
 * 95%+ real life production ready.
 * Tables are seeded with real life test data.
 * A solid effort to bridge the gap between end users and developers.
+* Added all the essential features mentioned in the planning doc along with the first four non-essential features.
 
 ###Production Readiness
 * The software is 95%+ ready for a real life use.

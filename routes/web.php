@@ -67,9 +67,6 @@ Route::get('/reports-dev/{id}/delete', 'ReportDevController@delete')->name('repo
 # Delete route to actually destroy the glossary term
 Route::delete('/reports-dev/{id}', 'ReportDevController@destroy')->name('reports_dev.destroy')->middleware('auth');
 
-# Show individual report
-//Route::get('/reports/{title}', 'ReportController@show')->name('reports.show')->middleware('auth');
-
 
 
 /****************************************************************************
@@ -176,52 +173,3 @@ Auth::routes();
 Route::get('/home', 'PageController@home'); //Temp solution. Actual solution: Find and override reset password method
                                             //in appropriate controller to redirect to route '/' instead of '/home'
                                             //and commented out this line
-
-
-/****************************************************************************
-* Test Routes
-*****************************************************************************/
-# To check plural of a word in Laravel way
-//Route::get('plural/{word}', function ($word) {return str_plural($word);});
-
-#To check mail configuration
-//Route::get('/mailconfig', function() {dump(Config::get('mail'));});
-
-#Checking user role
-//Route::get('/userrole',function(){dump(App\User::find(Auth::id())->roles->whereIn('id',array(2,3))->count());});
-
-/*
-Route::get('/debug', function() {
-
-    echo '<pre>';
-
-    echo '<h1>Environment</h1>';
-    echo App::environment().'</h1>';
-
-    echo '<h1>Debugging?</h1>';
-    if(config('app.debug')) echo "Yes"; else echo "No";
-
-    echo '<h1>Database Config</h1>';*/
-    /*
-    The following line will output your MySQL credentials.
-    Uncomment it only if you're having a hard time connecting to the database and you
-    need to confirm your credentials.
-    When you're done debugging, comment it back out so you don't accidentally leave it
-    running on your live server, making your credentials public.
-    */
-    //print_r(config('database.connections.mysql'));
-/*
-    echo '<h1>Test Database Connection</h1>';
-    try {
-        $results = DB::select('SHOW DATABASES;');
-        echo '<strong style="background-color:green; padding:5px;">Connection confirmed</strong>';
-        echo "<br><br>Your Databases:<br><br>";
-        print_r($results);
-    }
-    catch (Exception $e) {
-        echo '<strong style="background-color:crimson; padding:5px;">Caught exception: ', $e->getMessage(), "</strong>\n";
-    }
-
-    echo '</pre>';
-});
-*/
