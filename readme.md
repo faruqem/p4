@@ -85,4 +85,4 @@ You can use the following test users with different role for testing:
 
 ###Conventions
 * Report, glossary, rating, revision and comment resource has their own controllers for all four CRUD operations in addition to page, layouts and other authentication controllers.
-* For report there are two controllers - one (ReportController) for users mainly to view and one (ReportDevController) for developers to do all four CRUD operations. So the convention showed in the class followed accordingly for controllers, views, controller functions and routes in addition to database tables, column names, seeders and models. In case of some non-resource objects I used names that makes sense and meaningful.
+* For report there are two controllers - one (ReportController) for users mainly to view reports, and one (ReportDevController) for developers to do all four CRUD operations. So I followed the convention showed in the class where they make sense for controllers, views, controller functions and routes in addition to database tables, column names, seeders and models. In case of some non-resource objects I used names that represent the action and are meaningful.
